@@ -32,7 +32,12 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://darion-crm.vercel.app",  # Vercel production
+        "http://localhost:3000",           # Local dev
+        "http://localhost:5500",           # Local dev (Live Server)
+        "http://127.0.0.1:5500",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
