@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process | {{title}}</title>
+    <meta name="description"
+        content="Discover how {{title}} simplifies your furnishing experience through our 5-step process.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header class="site-header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" aria-label="Compatto Home">
+                <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="currentColor" />
+                    <path d="M12 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z" fill="#f9f7f4" />
+                </svg>
+                {{logo_text}}
+            </a>
+
+            <div class="header-desktop-cta">
+                <a href="contact.html" class="btn btn-outline" id="desktop-contact-btn">Contact us</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="about.html">Who we are</a></li>
+                    <li><a href="challenges.html">The challenges</a></li>
+                    <li><a href="process.html">Our process</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="why-choose.html">Why choose us</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn" id="mobile-contact-btn">Contact us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: var(--space-xl);">
+            <div class="container">
+                <div class="section-header">
+                    <h1 style="font-size: 2.5rem; margin-bottom: var(--space-sm);">Our <span
+                            style="color: var(--color-accent);">Process</span></h1>
+                    <p>A proven methodology ensuring your complete satisfaction.</p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-lg); margin-top: var(--space-lg);">
+                    <div class="process-card">
+                        <div class="process-content">
+                            <div class="process-number" style="font-size: 2rem; color: var(--color-text-main);">1</div>
+                            <h3>Initial Consultation</h3>
+                            <p>We work with you and your architects to define the vision, budgets, and operational
+                                requirements of the spaces.</p>
+                        </div>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-content">
+                            <div class="process-number" style="font-size: 2rem; color: var(--color-text-main);">2</div>
+                            <h3>Vendor Selection</h3>
+                            <p>From our 150+ network, we select the perfect combination of craftsmen and manufacturers
+                                that match the brief exactly.</p>
+                        </div>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-content">
+                            <div class="process-number" style="font-size: 2rem; color: var(--color-text-main);">3</div>
+                            <h3>Manufacturing & QC</h3>
+                            <p>During the build phase, our team conducts regular site visits to facilities ensuring
+                                standards are met before finishing.</p>
+                        </div>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-content">
+                            <div class="process-number" style="font-size: 2rem; color: var(--color-text-main);">4</div>
+                            <h3>Logistics & Installation</h3>
+                            <p>We manage all shipping, handling, and white-glove installation directly to the client
+                                spaces.</p>
+                        </div>
+                    </div>
+                    <div class="process-card" style="border: 2px solid var(--color-accent);">
+                        <div class="process-content">
+                            <div class="process-number" style="font-size: 2rem; color: var(--color-accent);">5</div>
+                            <h3>After-Sales Support</h3>
+                            <p>Our commitment to your satisfaction extends beyond the final installation. We conduct a
+                                thorough final walkthrough to ensure your satisfaction.</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600&h=400"
+                            alt="Completed hotel lobby" class="process-image" style="margin-top: 1rem;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" style="margin-top: var(--space-xl);">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">{{logo_text}}</div>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="about.html">Who we are</a></li>
+                        <li><a href="challenges.html">The challenges</a></li>
+                        <li><a href="process.html">Our process</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="why-choose.html">Why choose us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 {{title}}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

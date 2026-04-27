@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | {{logo_text}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-meta-item {
+            margin-bottom: 20px;
+        }
+
+        .project-meta-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-meta-label {
+            display: block;
+            color: var(--clr-text-main);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .project-meta-value {
+            color: var(--clr-text-p);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-layout-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" style="background-color: var(--clr-bg-primary);">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">{{logo_text}}</span>
+                    <span class="logo-subtitle">INTERIOR<br>STUDIO</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="pages.html" class="nav-link">Pages</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contacts</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main style="padding-top: 140px;">
+        <section class="section-padding" style="padding-top: 40px;">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+                    <div class="section-badge">RESIDENTIAL</div>
+                    <h1 class="section-title" style="margin-bottom: 20px;">Modern Vista Villa</h1>
+                    <p style="color: var(--clr-text-p); font-size: 1.1rem;">Complete interior redesign featuring
+                        open-plan living and minimalist finishes tailored for maximum natural light immersion.</p>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+                    alt="Modern Vista Villa Hero"
+                    style="width: 100%; height: 500px; object-fit: cover; border-radius: 8px; margin-bottom: 60px;">
+
+                <div class="portfolio-layout-grid" style="display: grid; grid-template-columns: 1fr 3fr; gap: 60px;">
+                    <!-- Sidebar Metadata -->
+                    <aside>
+                        <div style="background: var(--clr-bg-card); padding: 40px 30px; border-radius: 8px;">
+                            <h4 style="margin-bottom: 24px; color: var(--clr-text-main); font-size: 1.2rem;">Project
+                                Info</h4>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label">Client</span>
+                                <span class="project-meta-value">The Evergreen Family</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label">Location</span>
+                                <span class="project-meta-value">Seattle, WA</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label">Services</span>
+                                <span class="project-meta-value">Interior Detailing, Furniture Selection</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label">Completed</span>
+                                <span class="project-meta-value">March 2026</span>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Content -->
+                    <div style="color: var(--clr-text-p); font-size: 1.05rem; line-height: 1.8;">
+                        <h3 style="color: var(--clr-text-main); font-size: 1.6rem; margin-bottom: 16px;">The Challenge
+                        </h3>
+                        <p style="margin-bottom: 32px;">The clients approached us with a uniquely divided 1970s
+                            split-level home. They wanted to radically expand the visual flow of the space and
+                            incorporate structural glass walls without compromising the fundamental warmth of an
+                            intimate family sanctuary.</p>
+
+                        <h3 style="color: var(--clr-text-main); font-size: 1.6rem; margin-bottom: 16px;">Our Solution
+                        </h3>
+                        <p style="margin-bottom: 32px;">By deploying extensive structural reinforcements, we were able
+                            to safely eliminate the core partition walls. We utilized a completely neutral color palette
+                            augmented by heavy organic textures—such as raw oak wood and natural slate stone—to ground
+                            the newly soaring open-concept layout.</p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px;">
+                            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+                                alt="Vista Design Process 1"
+                                style="width: 100%; border-radius: 4px; object-fit: cover; height: 300px;">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+                                alt="Vista Design Process 2"
+                                style="width: 100%; border-radius: 4px; object-fit: cover; height: 300px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Connect Section -->
+        <section class="section-padding bg-light" style="text-align: center; margin-top: 40px;">
+            <div class="container">
+                <h3 style="font-size: 2rem; margin-bottom: 24px; color: var(--clr-text-main);">Want us to transform your
+                    space?</h3>
+                <p style="margin-bottom: 32px; color: var(--clr-text-p);">Contact our elite design team to schedule your
+                    initial consultation.</p>
+                <a href="contact.html" class="btn btn-primary dark">Start Your Project</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <h3>{{logo_text}}</h3>
+                    </div>
+                    <p class="footer-desc">The inspired design of tomorrow. We are specializing in interior tenant
+                        improvements.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="pages.html">Pages</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>{{address}}, New York, NY 10001</p>
+                    <p>info@{{logo_text}}.studio</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 {{logo_text}} Interior Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

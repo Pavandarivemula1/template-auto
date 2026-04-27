@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{logo_text}} - Find Your Dream Home</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo flex items-center">
+                <div class="logo-icon"><i class="fa-solid fa-house"></i></div>
+                <span class="logo-text">{{logo_text}}</span>
+            </a>
+
+            <nav class="nav" id="mobile-nav">
+                <ul class="flex">
+                    <li><a href="index.html" class="active">Home <i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="listing.html">Listing <i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="properties.html">Properties <i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="pages.html">Pages <i class="fa-solid fa-angle-down"></i></a></li>
+                    <li><a href="blog.html">Blog <i class="fa-solid fa-angle-down"></i></a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions flex items-center">
+                <a href="login.html" class="login-link desktop-only">Login/Register</a>
+                <a href="submit-property.html" class="btn btn-primary">Submit</a>
+                <button class="mobile-menu-toggle mobile-only" id="menu-toggle">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p>Latest news and guides for real estate.</p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container grid grid-3">
+            <div class="blog-card"><a href="blog-detail.html"><img
+                        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600"></a>
+                <div class="blog-content">
+                    <h3><a href="blog-detail.html">Top 10 Tips for Buying a House</a></h3>
+                    <p>Ensure you know the market before taking the leap...</p><a href="blog-detail.html"
+                        class="link-arrow" style="display:inline-block; margin-top:15px;">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card"><a href="blog-detail.html"><img
+                        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600"></a>
+                <div class="blog-content">
+                    <h3><a href="blog-detail.html">How to Stage Your Home</a></h3>
+                    <p>Maximize your property value by implementing these styling choices...</p><a
+                        href="blog-detail.html" class="link-arrow" style="display:inline-block; margin-top:15px;">Read
+                        More</a>
+                </div>
+            </div>
+            <div class="blog-card"><a href="blog-detail.html"><img
+                        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600"></a>
+                <div class="blog-content">
+                    <h3><a href="blog-detail.html">Understanding Mortgage Rates</a></h3>
+                    <p>Navigating the complex world of loans just became simpler...</p><a href="blog-detail.html"
+                        class="link-arrow" style="display:inline-block; margin-top:15px;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo logo"
+                        style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+                        <div class="logo-icon"><i class="fa-solid fa-house"></i></div>
+                        <span class="logo-text" style="color: white;">{{logo_text}}</span>
+                    </a>
+                    <p class="footer-desc">Find your dream home with us. We are a reliable real estate agency providing
+                        top properties.</p>
+                    <div class="footer-contact">
+                        <p><i class="fa-solid fa-location-dot"></i> 4517 Washington Ave. Manchester, Kentucky 39495</p>
+                        <p><i class="fa-solid fa-phone"></i> (406) 555-0120</p>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Categories</h4>
+                    <ul>
+                        <li><a href="properties.html">Apartment</a></li>
+                        <li><a href="properties.html">My Houses</a></li>
+                        <li><a href="properties.html">Villa</a></li>
+                        <li><a href="properties.html">Studio</a></li>
+                        <li><a href="properties.html">Office</a></li>
+                        <li><a href="properties.html">Shop</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Useful Links</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms of Services</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="pricing.html">Pricing Plans</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Subscribe to our newsletter to get the latest updates.</p>
+                    <form class="newsletter-form flex">
+                        <input type="email" placeholder="Your email...">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom flex justify-between items-center">
+                <p>&copy; 2024 {{logo_text}}. All rights reserved.</p>
+                <div class="social-links flex">
+                    <a href="blog-detail.html"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="blog-detail.html"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="blog-detail.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="blog-detail.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

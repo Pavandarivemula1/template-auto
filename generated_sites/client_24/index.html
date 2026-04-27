@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Nellore-focused land developer and builder primarily dealing in plotted developments, residential layouts, and construction services for local and regional buyers">
+    <meta name="keywords" content="Architecture, Design Firm, Real Estate Development, Villa Sereno, The Glass House, Nature's Edge, Sustainable Design">
+    <meta name="author" content="SatyamG Developers">
+    
+    <meta property="og:title" content="SatyamG Developers | SatyamG Land Developers Theme - Sculpting Light, Defining Space">
+    <meta property="og:description" content="Explore premium architectural designs and property developments.">
+    <meta property="og:type" content="website">
+
+    <title>SatyamG Land Developers</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-color: #f7f3e8; 
+            --surface-color: #FFFFFF;
+            --text-primary: #1C1A18; 
+            --text-secondary: #5A5856; 
+            --accent-green: #6d7b5b; 
+            --accent-green-hover: #5a664c;
+            --border-color: #D5D1C8;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --container-width: 1280px;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Global Reset */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-color); color: var(--text-primary);
+            font-family: var(--font-sans); line-height: 1.6;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        }
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+        
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 5%; }
+
+        /* --- Navigation --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 12px 0; /* Reduced padding */
+            transition: var(--transition-smooth); background: transparent;
+        }
+        header.scrolled nav { color: var(--text-primary); }
+        header.scrolled {
+            background: rgba(247, 243, 232, 0.95); backdrop-filter: blur(10px);
+            padding: 8px 0; /* Reduced scrolled padding */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; 
+         color: #FFFFFF; }
+        nav a:hover { color: var(--accent-green); }
+        .logo { 
+            font-family: var(--font-serif); font-size: 1.4rem; /* Reduced logo size */
+            font-weight: 600; letter-spacing: 0.02em; text-transform: none; 
+        }
+
+        /* --- Hero Section --- */
+        .hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; margin-bottom: 100px; }
+        .hero img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .hero-overlay { width: 100%; padding: 80px 5%; background: linear-gradient(to top, rgba(28, 26, 24, 0.8) 0%, rgba(28, 26, 24, 0) 100%); color: white; }
+        .hero-overlay h1 { font-family: var(--font-serif); font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 30px; max-width: 800px; }
+        .hero-overlay p { font-size: 1.1rem; max-width: 600px; margin-bottom: 40px; opacity: 0.9; }
+        
+        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn {
+            display: inline-block; background-color: var(--accent-green); color: white; border: none;
+            padding: 16px 32px; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: var(--transition-smooth);
+        }
+        .btn:hover { background-color: var(--accent-green-hover); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-outline { background: transparent; border: 1px solid white; color: white; }
+        .btn-outline:hover { background: white; color: var(--text-primary); }
+
+        /* --- Stats Section --- */
+        .stats-section { padding: 80px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); background-color: var(--surface-color); margin-bottom: 100px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+        .stat-number { font-family: var(--font-serif); font-size: 3.5rem; color: var(--accent-green); line-height: 1; margin-bottom: 10px; }
+        .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); font-weight: 500; }
+
+        /* --- Approach/Process Section --- */
+        .approach-section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px; }
+        .approach-content h2 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; margin-bottom: 30px; }
+        .approach-content p { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.05rem; }
+        .approach-images { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .approach-images img:first-child { margin-top: 60px; }
+
+        /* --- Portfolio Grid --- */
+        .section-header { margin-bottom: 50px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .section-header h2 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 40px; margin-bottom: 140px; }
+        
+        .property-card { display: flex; flex-direction: column; }
+        .img-wrapper { overflow: hidden; margin-bottom: 20px; }
+        .property-img { width: 100%; transition: transform 0.8s ease; }
+        .property-card:hover .property-img { transform: scale(1.05); }
+
+        /* Grid Staggering */
+        .property-card:nth-child(1) { grid-column: 1 / 8; }
+        .property-card:nth-child(2) { grid-column: 8 / 13; margin-top: 80px; }
+        .property-card:nth-child(3) { grid-column: 2 / 7; }
+
+        .property-card h3 { font-family: var(--font-sans); font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .property-card p.desc { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 15px; max-width: 90%; }
+        .meta-tags { display: flex; gap: 15px; margin-bottom: 15px; font-size: 0.8rem; color: var(--text-secondary); font-weight: 500; }
+        
+        .read-more { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--text-primary); padding-bottom: 2px; align-self: flex-start; }
+        .read-more:hover { color: var(--accent-green); border-color: var(--accent-green); }
+
+        /* --- About / Philosophy --- */
+        .philosophy { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 140px; }
+        .philosophy-img { overflow: hidden; }
+        .philosophy-img img { width: 100%; height: 600px; filter: grayscale(100%); transition: filter 0.5s ease; }
+        .philosophy-img:hover img { filter: grayscale(0%); }
+        .philosophy-text h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 3vw, 3rem); font-weight: 400; margin-bottom: 30px; }
+        .philosophy-text p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 25px; }
+
+        /* --- Services & Contact --- */
+        .bottom-section { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding-top: 80px; padding-bottom: 80px; border-top: 1px solid var(--border-color); }
+        .section-title { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 400; margin-bottom: 40px; }
+        
+        .service-item { display: flex; align-items: flex-start; gap: 25px; margin-bottom: 35px; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 25px; transition: var(--transition-smooth); }
+        .service-item:hover { transform: translateX(10px); }
+        .service-num { font-family: var(--font-serif); font-size: 2.5rem; color: var(--border-color); line-height: 1; transition: color 0.3s ease; }
+        .service-item:hover .service-num { color: var(--accent-green); }
+        .service-text h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .service-text p { font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* Form */
+        .contact-form { background-color: var(--surface-color); padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 10px; }
+        .form-control { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border-color); padding: 10px 0; font-family: var(--font-sans); font-size: 1rem; color: var(--text-primary); transition: border-color 0.3s ease; }
+        .form-control:focus { outline: none; border-bottom-color: var(--text-primary); }
+        textarea.form-control { height: 100px; resize: vertical; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed; bottom: 40px; right: 40px; z-index: 1000;
+            background-color: #25d366; color: white; border-radius: 50%;
+            width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4); color: white;}
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .portfolio-grid { display: flex; flex-direction: column; gap: 60px; }
+            .property-card { margin-top: 0 !important; }
+            .philosophy { grid-template-columns: 1fr; gap: 40px; }
+            .bottom-section { grid-template-columns: 1fr; gap: 60px; }
+        }
+        @media (max-width: 900px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 60px 20px; }
+            .approach-section { grid-template-columns: 1fr; gap: 40px; }
+            .approach-images img:first-child { margin-top: 0; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+            .whatsapp-float svg { width: 28px; height: 28px; }
+        }
+        @media (max-width: 768px) {
+            .hero-overlay { padding: 40px 5%; }
+            .contact-form { padding: 20px; }
+            header nav { font-size: 0.75rem; gap: 10px; }
+            .logo { font-size: 1.2rem; }
+        }
+    
+        /* --- Robust Footer --- */
+        .main-footer {
+            background-color: #1C1A18;
+            color: #FFFFFF;
+            padding: 80px 0 30px;
+            margin-top: 80px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #FFFFFF !important;
+            text-transform: uppercase;
+        }
+        .footer-desc {
+            color: #A09E9C;
+            font-size: 0.95rem;
+            max-width: 350px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        .social-links a {
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid transparent;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            color: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+        .footer-col h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 15px;
+            color: #A09E9C;
+            font-size: 0.95rem;
+        }
+        .footer-col ul li a {
+            color: #A09E9C;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-col ul li a:hover {
+            color: #FFFFFF;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #A09E9C;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+    </style>
+
+    <!-- Generated by Template Engine -->
+    <meta data-engine-client content="true" />
+    <meta name="author"      content="SatyamG Land Developers" />
+    <meta name="contact"     content="07331111897" />
+    <meta name="email"       content="" />
+    <meta name="address"     content="#27-4-218/1, BESIDE Gayatri Grand apartments, 3rd St, Ramji Nagar, Nellore, Andhra Pradesh 524002" />
+    <meta name="location"    content="Nellore, AP" />
+    <meta name="logo-text"   content="SatyamG Developers" />
+    <meta name="description" content="A Nellore-focused land developer and builder primarily dealing in plotted developments, residential layouts, and construction services for local and regional buyers" />
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <nav aria-label="Main Navigation">
+                <a href="properties.html">Properties</a>
+                <a href="#" class="logo" aria-label="Archetype Home">SatyamG Developers</a>
+                <a href="about.html">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-heading">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop" alt="Striking modern coastal villa at twilight." fetchpriority="high">
+            <div class="hero-overlay">
+                <div class="container">
+                    <h1 id="hero-heading">Sculpting Light, Defining Space.</h1>
+                    <p>An award-winning architectural design firm specializing in sustainable luxury, bespoke residential retreats, and visionary commercial environments.</p>
+                    <div class="hero-buttons">
+                        <a href="#properties" class="btn" aria-label="View our property projects">View Projects</a>
+                        <a href="https://wa.me/919876543210?text=Hello%20Archetype!%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div>
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Years of Excellence</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">84</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Industry Awards</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Sustainable Focus</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="approach-section">
+                <div class="approach-content">
+                    <h2>Form Meets Function.</h2>
+                    <p>Our design philosophy goes beyond aesthetics. We conduct rigorous spatial analysis to ensure every square foot serves a distinct purpose. From early structural schematics to the final placement of interior textures, our process is meticulously detailed.</p>
+                    <p>We work closely with elite craftsmen and utilize the latest in architectural technology, ensuring our designs are not only visually striking but structurally uncompromising and environmentally responsive.</p>
+                    <br>
+                    <a href="about.html" class="read-more">Discover Our Process</a>
+                </div>
+                <div class="approach-images">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Architectural Detail - Pool" style="height: 400px;">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop" alt="Architectural Detail - Interior" style="height: 400px;">
+                </div>
+            </section>
+
+            <section id="properties" aria-labelledby="portfolio-heading">
+                <div class="section-header">
+                    <h2 id="portfolio-heading">Featured Works</h2>
+                </div>
+
+                <div class="portfolio-grid">
+                    <article class="property-card">
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop" alt="Villa Sereno" class="property-img">
+                        </div>
+                        <h3>Villa Sereno</h3>
+                        <div class="meta-tags"><span>Coastal Retreat</span> | <span>2024</span></div>
+                        <p class="desc">A harmonious blend of traditional coastal forms and modern minimalist architecture, designed for tranquil living.</p>
+                        <a href="#contact" class="read-more">Inquire Now</a>
+                    </article>
+
+                    <article class="property-card">
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop" alt="The Glass House" class="property-img">
+                        </div>
+                        <h3>The Glass House</h3>
+                        <div class="meta-tags"><span>Urban Icon</span> | <span>Available Q3</span></div>
+                        <p class="desc">Redefining transparency, this architectural marvel integrates internal spaces with the surrounding environment.</p>
+                        <a href="#contact" class="read-more">View Details</a>
+                    </article>
+
+                    <article class="property-card">
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop" alt="Nature's Edge" class="property-img">
+                        </div>
+                        <h3>Nature's Edge</h3>
+                        <div class="meta-tags"><span>Sustainable Luxury</span> | <span>Completed</span></div>
+                        <p class="desc">Exclusive living seamlessly integrated with natural landscapes, prioritizing sustainability and unique design.</p>
+                        <a href="#contact" class="read-more">Explore Property</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="philosophy" aria-labelledby="philosophy-heading">
+                <div class="philosophy-img">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1000&auto=format&fit=crop" alt="Collaborative architectural team" loading="lazy">
+                </div>
+                <div class="philosophy-text">
+                    <h2 id="philosophy-heading">Our Philosophy</h2>
+                    <p>At SatyamG Developers, we believe that the physical spaces we forge are a direct reflection of human potential. Our designs emerge from a profound understanding of light, material, and the intrinsic rhythm of the environment they inhabit. We don't just build; we sculpt spaces that inspire and connect.</p>
+                    <p>Our approach integrates innovative sustainable practices with visionary aesthetics, ensuring that every project serves a powerful, distinct purpose. We are artisans continuum, shaping a sustainable future.</p>
+                    <br>
+                    <a href="about.html" class="read-more">Meet the Architects</a>
+                </div>
+            </section>
+
+            <section id="contact" class="bottom-section">
+                <div class="services">
+                    <h2 class="section-title">Services</h2>
+                    
+                    <div class="service-item">
+                        <div class="service-num" aria-hidden="true">01</div>
+                        <div class="service-text">
+                            <h4>Design & Concept</h4>
+                            <p>End-to-end architectural planning and conceptualization tailored to unique visions.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-num" aria-hidden="true">02</div>
+                        <div class="service-text">
+                            <h4>Interior Architecture</h4>
+                            <p>Crafting immersive interior spaces that harmonize functionality with aesthetic intent.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-num" aria-hidden="true">03</div>
+                        <div class="service-text">
+                            <h4>Urban Planning</h4>
+                            <p>Strategic development of sustainable and resilient urban landscapes.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-num" aria-hidden="true">04</div>
+                        <div class="service-text">
+                            <h4>Project Management</h4>
+                            <p>Comprehensive oversight ensuring seamless execution and delivery of complex projects.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h2 class="section-title">Contact</h2>
+                    <form class="contact-form" action="#" method="POST" id="lead-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" required placeholder="Describe your project or inquiry..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <a href="https://wa.me/919876543210?text=Hello%20Archetype!%20I'm%20reaching%20out%20from%20your%20website." class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.124.553 4.195 1.604 6.012L.152 24l6.115-1.604A11.96 11.96 0 0 0 12.031 24c6.645 0 12.03-5.385 12.03-12.031S18.676 0 12.031 0zm0 21.968c-1.844 0-3.65-.497-5.234-1.44l-.375-.224-3.89 1.02.1023-3.79-.245-.39A9.92 9.92 0 0 1 2.062 12.03c0-5.508 4.48-9.988 9.988-9.988 5.508 0 9.988 4.48 9.988 9.988s-4.48 9.988-9.988 9.988zm5.47-7.485c-.3-.15-1.774-.876-2.048-.976-.275-.101-.476-.15-.676.15-.2.3-.775.976-.95 1.176-.176.2-.351.226-.651.076-.3-.15-1.266-.467-2.411-1.487-.89-.794-1.49-1.774-1.666-2.074-.175-.3-.019-.462.131-.612.135-.135.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.676-1.626-.926-2.226-.244-.585-.492-.505-.676-.514-.175-.009-.376-.009-.576-.009s-.526.075-.801.375c-.275.3-1.051 1.026-1.051 2.502s1.076 2.89 1.226 3.09c.15.2 2.107 3.217 5.107 4.512.714.308 1.27.493 1.705.631.716.227 1.368.195 1.883.118.577-.086 1.774-.726 2.024-1.426.25-.7.25-1.301.175-1.426-.075-.125-.276-.2-.576-.35z"/>
+        </svg>
+    </a>
+
+    
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">SatyamG Developers</div>
+                    <p class="footer-desc">Sculpting light and defining space through visionary architecture and sustainable design.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li>Guntur, Andhra Pradesh</li>
+                        <li><a href="mailto:">contact@SatyamG Developers.com</a></li>
+                        <li><a href="tel:07331111897">+91 98765 43210</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SatyamG Developers. All rights reserved.</p>
+                <p>Sculpting Light, Defining Space.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            
+            // Sticky Header Glassmorphism Effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Form submission simulation
+            document.getElementById('lead-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = e.target.querySelector('button');
+                const originalText = btn.innerText;
+                btn.innerText = 'Sent!';
+                btn.style.backgroundColor = '#2c3026';
+                
+                setTimeout(() => {
+                    e.target.reset();
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = '';
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>

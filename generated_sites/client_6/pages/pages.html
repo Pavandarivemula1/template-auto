@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>harsha</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<style>
+        .page-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .page-list-item {
+            background: var(--clr-bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .page-list-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .page-list-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .page-list-content {
+            padding: 30px;
+        }
+
+        .page-list-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--clr-text-main);
+        }
+
+        .page-list-desc {
+            color: var(--clr-text-p);
+            margin-bottom: 24px;
+        }
+
+        .page-list-link {
+            color: var(--clr-accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+    </style>
+
+    <!-- Engine: client metadata -->
+    <meta data-engine-client content="true" />
+    <meta name="author"      content="harsha" />
+    <meta name="contact"     content="+918179864623" />
+    <meta name="email"       content="harsha@darion.in" />
+    <meta name="address"     content="guntur" />
+    <meta name="location"    content="guntur" />
+    <meta name="logo-text"   content="construction" />
+    <meta name="description" content="dbdk" />
+</head>
+<body>
+<header class="header" style="background-color: var(--clr-bg-primary);">
+<div class="container header-container">
+<a class="logo" href="../index.html">
+<div class="logo-icon">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="+918179864623" width="24">
+<path d="M3 9l9-7 9 7v11a+918179864623-2 2H5a+918179864623-2-2z"></path>
+<polyline points="+918179864623 +918179864623"></polyline>
+</svg>
+</div>
+<div class="logo-text">
+<span class="logo-title">construction</span>
+<span class="logo-subtitle">INTERIOR<br/>STUDIO</span>
+</div>
+</a>
+<nav class="nav">
+<ul class="nav-list">
+<li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link active" href="pages.html">Pages</a></li>
+<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+<li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contacts</a></li>
+</ul>
+</nav>
+<button aria-label="Toggle navigation" class="menu-toggle">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="+918179864623" width="24">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</button>
+</div>
+</header>
+<main style="padding-top: 100px;">
+<section class="section-padding">
+<div class="container" style="text-align: center;">
+<div class="section-badge">PAGES OVERVIEW</div>
+<h2 class="section-title">Explore Our Template Hub</h2>
+<p class="section-text" style="margin: 0 auto; max-width: 600px;">Navigate through our comprehensive
+                    collection of designed pages crafted perfectly for modern gunturudios.</p>
+<div class="page-list-grid" style="text-align: left;">
+<div class="page-list-item">
+<img alt="Related Subpage" class="page-list-img" src="https://images.unsplash.com/photo-+918179864623-be6161a56a0c?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<div class="page-list-content">
+<h3 class="page-list-title">Related Page Component</h3>
+<p class="page-list-desc">A connected supplemental template showcasing isolated related
+                                project components and layouts.</p>
+<a class="page-list-link" href="related-page-1.html">View Page <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="+918179864623" width="12">
+<polyline points="+918179864623 9 6"></polyline>
+</svg></a>
+</div>
+</div>
+<div class="page-list-item">
+<img alt="About Layout" class="page-list-img" src="https://images.unsplash.com/photo-+918179864623-a586c61ea9bc?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<div class="page-list-content">
+<h3 class="page-list-title">About Us</h3>
+<p class="page-list-desc">Details of our agency history, team structure, and overall
+                                philosophy for living spaces.</p>
+<a class="page-list-link" href="about.html">View Page <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="+918179864623" width="12">
+<polyline points="+918179864623 9 6"></polyline>
+</svg></a>
+</div>
+</div>
+<div class="page-list-item">
+<img alt="Services Layout" class="page-list-img" src="https://images.unsplash.com/photo-+918179864623-be6161a56a0c?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<div class="page-list-content">
+<h3 class="page-list-title">Our Services</h3>
+<p class="page-list-desc">In-depth overview of our offerings including interior detailing,
+                                furniture styling, and exterior blending.</p>
+<a class="page-list-link" href="services.html">View Page <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="+918179864623" width="12">
+<polyline points="+918179864623 9 6"></polyline>
+</svg></a>
+</div>
+</div>
+<div class="page-list-item">
+<img alt="Portfolio Layout" class="page-list-img" src="https://images.unsplash.com/photo-+918179864623-7eded433c457?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<div class="page-list-content">
+<h3 class="page-list-title">Project Portfolio</h3>
+<p class="page-list-desc">A visually driven gateway showcasing our finest completed tenant
+                                improvements and home makeovers.</p>
+<a class="page-list-link" href="portfolio.html">View Page <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="+918179864623" width="12">
+<polyline points="+918179864623 9 6"></polyline>
+</svg></a>
+</div>
+</div>
+<div class="page-list-item">
+<img alt="Contact Layout" class="page-list-img" src="https://images.unsplash.com/photo-+918179864623-+918179864623c?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<div class="page-list-content">
+<h3 class="page-list-title">Contact Directory</h3>
+<p class="page-list-desc">Functional touchpoints including interactive message systems and
+                                localized address parameters.</p>
+<a class="page-list-link" href="contact.html">View Page <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="+918179864623" width="12">
+<polyline points="+918179864623 9 6"></polyline>
+</svg></a>
+</div>
+</div>
+<div class="page-list-item">
+<img alt="Blogs Layout" class="page-list-img" src="https://images.unsplash.com/photo-+918179864623-605612bd2d61?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<div class="page-list-content">
+<h3 class="page-list-title">Community Blogs</h3>
+<p class="page-list-desc">An editorial stream for updates, design insights, studio
+                                achievements, and aesthetic inspiration.</p>
+<a class="page-list-link" href="blogs.html">View Page <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="+918179864623" width="12">
+<polyline points="+918179864623 9 6"></polyline>
+</svg></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section-padding bg-light" style="text-align: center; margin-top: 40px;">
+<div class="container">
+<h3 style="font-size: 2rem; margin-bottom: 24px; color: var(--clr-text-main);">Ready to transform your
+                    space?</h3>
+<a class="btn btn-primary dark" href="contact.html">Get started now</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<div class="footer-logo">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="+918179864623" width="24">
+<path d="M3 9l9-7 9 7v11a+918179864623-2 2H5a+918179864623-2-2z"></path>
+<polyline points="+918179864623 +918179864623"></polyline>
+</svg>
+<h3>harsha</h3>
+</div>
+<p class="footer-desc">The inspired design of tomorrow. We are specializing in interior tenant
+                        improvements.</p>
+</div>
+<div class="footer-col">
+<h4>Links</h4>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="pages.html">Pages</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Contact</h4>
+<p>123 guntur, guntur, NY 10001</p>
+<p>harsha@harsha.in</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 harsha gunturudio. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

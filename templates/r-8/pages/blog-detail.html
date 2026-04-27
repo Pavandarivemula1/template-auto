@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details | {{logo_text}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .blog-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: var(--clr-text-light);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .blog-hero-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 60px;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--clr-text-p);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h3 {
+            font-size: 1.75rem;
+            color: var(--clr-text-main);
+            margin: 40px 0 20px;
+        }
+
+        .blog-content p {
+            margin-bottom: 24px;
+        }
+
+        .blog-content blockquote {
+            border-left: 4px solid var(--clr-accent);
+            padding-left: 24px;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--clr-text-main);
+            margin: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" style="background-color: var(--clr-bg-primary);">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">{{logo_text}}</span>
+                    <span class="logo-subtitle">INTERIOR<br>STUDIO</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="pages.html" class="nav-link">Pages</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="blogs.html" class="nav-link active">Blogs</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contacts</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main style="padding-top: 140px;">
+        <section class="section-padding" style="padding-top: 40px;">
+            <div class="container">
+                <div class="blog-header">
+                    <div class="section-badge">INTERIOR DESIGN</div>
+                    <h1 class="section-title" style="margin-bottom: 20px;">10 Tips for Modern Minimalism</h1>
+                    <div class="blog-meta">
+                        <span>By Jessica {{logo_text}}</span>
+                        <span>&bull;</span>
+                        <span>May 14, 2026</span>
+                        <span>&bull;</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1200&q=80"
+                    alt="Modern Minimalist Interior" class="blog-hero-img">
+
+                <div class="blog-content">
+                    <p>Minimalism isn't just about owning less; it's about making deliberate choices to highlight what
+                        matters most. In modern interior design, achieving a minimalist aesthetic requires a delicate
+                        balance between functionality and visual clarity.</p>
+
+                    <h3>1. Define the Purpose</h3>
+                    <p>Before stripping a room of its contents, understand how the space is used. Allow the primary
+                        function of the room to dictate its layout. Flow and usability should always outweigh pure
+                        stylistic choices.</p>
+
+                    <blockquote>
+                        "Clutter is not just physical stuff. It's old ideas, toxic relationships and bad habits. Clutter
+                        is anything that does not support your better self."
+                    </blockquote>
+
+                    <h3>2. Adopt a Muted Color Palette</h3>
+                    <p>Colors profoundly impact the mind. By keeping your fundamental palette composed of neutral tones
+                        like white, grey, beige, and soft earth tones, your mind encounters fewer visual interruptions.
+                        You can inject life into these muted surroundings with one or two deliberate accent pieces.</p>
+
+                    <h3>3. Prioritize Light</h3>
+                    <p>Unobstructed windows, sheer curtains, and strategically placed mirrors can flood a room with
+                        natural lighting. Shadows create perceived depth, while even lighting expands spatial awareness.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Connect Section -->
+        <section class="section-padding bg-light" style="text-align: center;">
+            <div class="container">
+                <h3 style="font-size: 2rem; margin-bottom: 24px; color: var(--clr-text-main);">Inspired to re-design
+                    your home?</h3>
+                <p style="margin-bottom: 32px; color: var(--clr-text-p);">Connect with our expert team to explore
+                    tailored minimalist solutions for your living spaces.</p>
+                <a href="contact.html" class="btn btn-primary dark">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <h3>{{logo_text}}</h3>
+                    </div>
+                    <p class="footer-desc">The inspired design of tomorrow. We are specializing in interior tenant
+                        improvements.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="pages.html">Pages</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>{{address}}, New York, NY 10001</p>
+                    <p>info@{{logo_text}}.studio</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 {{logo_text}} Interior Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

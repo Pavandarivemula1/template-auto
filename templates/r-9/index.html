@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} | Bringing Simplicity In The Furnishing Market</title>
+
+    <!-- SEO & Meta Tags -->
+    <meta name="description"
+        content="{{title}} simplifies the complex process of furnishing all-inclusive, boutique & high-end hotels, and luxury residences in Greece & Cyprus.">
+
+    <!-- Fonts: Inter for minimal, premium Apple-like feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="site-header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" aria-label="Compatto Home">
+                <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="currentColor" />
+                    <path d="M12 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z" fill="#f9f7f4" />
+                </svg>
+                {{logo_text}}
+            </a>
+
+            <!-- Desktop CTA (Hidden on Mobile) -->
+            <div class="header-desktop-cta">
+                <a href="contact.html" class="btn btn-outline" id="desktop-contact-btn">Contact us</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="about.html">Who we are</a></li>
+                    <li><a href="challenges.html">The challenges</a></li>
+                    <li><a href="process.html">Our process</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="why-choose.html">Why choose us</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn" id="mobile-contact-btn">Contact us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="section hero" id="home">
+            <div class="container">
+                <div class="hero-card">
+                    <!-- Placeholder for premium furniture image -->
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200&h=800"
+                        alt="Minimalist luxury living room with wood furniture and soft lighting" class="hero-img">
+
+                    <div class="hero-overlay">
+                        <h1>Bringing Simplicity<br>In The Furnishing Market</h1>
+                        <p>{{title}} simplifies the complex process of furnishing all-inclusive, boutique & high-end
+                            hotels, and luxury residences in Greece & Cyprus.</p>
+                        <a href="contact.html" class="badge">Start Your Furnishing Journey</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS & WHO WE ARE SECTION -->
+        <section class="section" id="who-we-are">
+            <div class="container">
+                <div class="stats-grid">
+
+                    <!-- Stat cards layout -->
+                    <div style="display: flex; gap: var(--space-sm); flex-direction: column;">
+                        <div class="stat-card">
+                            <span class="stat-card-badge">Our Company In Numbers</span>
+                            <svg class="stat-card-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <!-- Abstract swoosh pattern representation -->
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                            </svg>
+                            <div>
+                                <div class="stat-number">150+</div>
+                                <div class="stat-label">Furniture Suppliers</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="background-color: var(--color-accent); min-height: 120px;">
+                            <div>
+                                <div class="stat-number" style="font-size: 2rem;">15+</div>
+                                <div class="stat-label">Years of Industry<br>Experience</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intro Card -->
+                    <div class="stats-intro-card">
+                        <div class="stats-intro-content">
+                            <h2>Who We Are</h2>
+                            <p>At {{title}}, we understand the challenges of creating exceptional spaces that blend
+                                elegance, quality, and functionality.</p>
+                            <br>
+                            <p>As Greece's premier furniture solutions provider, we've made it our mission to simplify
+                                the furnishing process, ensuring that every project is executed flawlessly from initial
+                                consultation to final installation.</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=400&h=300"
+                            alt="Team reviewing architecture plans and fabric swatches" class="stats-intro-image">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS / HOW WE SIMPLIFY -->
+        <section class="section" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How We <span style="color: var(--color-accent);">Simplify</span> Your<br>Furnishing Experience
+                    </h2>
+                </div>
+
+                <!-- Concept: Stacked cards mapping to 5 steps -->
+                <div class="process-card">
+                    <div class="process-content">
+                        <div class="process-number">5</div>
+                        <h3>After-Sales Support<br>and Maintenance</h3>
+                        <p>Our commitment to your satisfaction extends beyond the final installation. We conduct a
+                            thorough final walkthrough to ensure your satisfaction, and also offer comprehensive
+                            after-sales support for warranty claims, maintenance, and care instructions.</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600&h=400"
+                        alt="Beautiful hotel lobby or living space representing completed work" class="process-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US -->
+        <section class="section" id="why-choose-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why <span style="color: var(--color-accent);">Choose</span> {{title}}</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card feature-card-tan">
+                        <h3>End-to-End Solutions</h3>
+                        <p>We manage every aspect of your furnishing project, saving you time and resources.</p>
+                    </div>
+
+                    <div class="feature-card feature-card-tan">
+                        <h3>After-Sales Support</h3>
+                        <p>We are committed to providing ongoing support & after-sales service to address any future
+                            needs or concerns.</p>
+                        <!-- visual blob -->
+                        <svg style="margin-top: 1rem; width: 40px; height: 40px; fill: var(--color-card-brown)"
+                            viewBox="0 0 100 100">
+                            <path d="M40 10 Q 90 20, 80 80 T 10 90 Q -10 30, 40 10 Z" />
+                        </svg>
+                    </div>
+
+                    <div class="feature-card feature-card-dark feature-row-span-2">
+                        <h3>No Variety Restrictions</h3>
+                        <p>We partner with any vendor meeting our quality standards, providing the broadest selection of
+                            furniture solutions to suit your needs and preferences.</p>
+                    </div>
+
+                    <div class="feature-card feature-col-span-2">
+                        <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&q=80&w=800&h=400"
+                            alt="Dining table with chairs" class="feature-image-block">
+                        <div style="margin-top: var(--space-sm);">
+                            <h3>Superior Quality</h3>
+                            <p>Our partnerships with the best suppliers grant us access to the finest materials,
+                                craftsmanship, and quality control processes.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card feature-card-dark" style="background-color: #3b2c24;">
+                        <h3>Bespoke Furniture</h3>
+                        <p>We specialize in sourcing custom-made furniture pieces that perfectly match your unique
+                            vision and requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">{{logo_text}}</div>
+                    <p class="footer-desc">Bringing Simplicity In The Furnishing Market for boutique & high-end hotels
+                        and luxury residences.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="about.html">Who we are</a></li>
+                        <li><a href="challenges.html">The challenges</a></li>
+                        <li><a href="process.html">Our process</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="why-choose.html">Why choose us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:{{email}}">hello@{{title}}.gr</a></li>
+                        <li><a href="tel:{{contact}}">{{contact}}</a></li>
+                        <li><a href="#">Athens, Greece</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 {{title}}. All rights reserved.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

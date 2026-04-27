@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Template – Template Engine</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <style>
+        .templates-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 480px) {
+            .templates-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .templates-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .template-card {
+            background: var(--clr-card);
+            border: 2px solid var(--clr-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .template-card:hover {
+            border-color: var(--clr-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(108, 99, 255, .2);
+        }
+
+        .template-card.selected {
+            border-color: var(--clr-accent);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, .25);
+        }
+
+        .template-thumb {
+            height: 120px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            overflow: hidden;
+        }
+
+        .tpl-badge {
+            position: absolute;
+            top: .5rem;
+            right: .5rem;
+            background: var(--clr-accent);
+            color: #fff;
+            font-size: .62rem;
+            font-weight: 700;
+            padding: .2rem .5rem;
+            border-radius: 999px;
+        }
+
+        .template-info {
+            padding: .85rem;
+        }
+
+        .template-info h3 {
+            font-size: .9rem;
+            font-weight: 600;
+            margin-bottom: .2rem;
+        }
+
+        .template-info p {
+            font-size: .75rem;
+            color: var(--clr-muted);
+        }
+
+        #generate-wrap {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-icon">⚡</div>
+        <div>
+            <div class="logo-text">Template Engine</div>
+            <div class="logo-sub">Step 2 of 3 – Choose a Website</div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top:1.5rem; padding-bottom:2rem;">
+
+        <div class="steps">
+            <div class="step done">
+                <div class="step-dot">✓</div>
+                <div class="step-label">Your Info</div>
+            </div>
+            <div class="step active">
+                <div class="step-dot">2</div>
+                <div class="step-label">Pick Template</div>
+            </div>
+            <div class="step">
+                <div class="step-dot">3</div>
+                <div class="step-label">Preview</div>
+            </div>
+        </div>
+
+        <div class="page-hero" style="padding-top:0;">
+            <h1>Pick your style</h1>
+            <p>Hi <strong style="color:var(--clr-accent-lt)">{{ client_name }}</strong> — choose a real estate website
+                design to personalize.</p>
+        </div>
+
+        <div id="error-alert" class="alert alert-error" style="display:none; margin-bottom:1rem;">
+            <span>⚠️</span><span id="error-msg"></span>
+        </div>
+
+        <!-- 9 Real Estate Templates -->
+        <div class="templates-grid">
+
+            <div class="template-card" data-template="1" onclick="selectTemplate('1')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#f7f3e8,#e8e4d8);">
+                    🏛️<span class="tpl-badge">Archetype</span>
+                </div>
+                <div class="template-info">
+                    <h3>Archetype · Solara</h3>
+                    <p>Luxury architecture firm. Full-bleed hero, portfolio grid, serif typography.</p>
+                </div>
+            </div>
+
+            <div class="template-card" data-template="2" onclick="selectTemplate('2')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
+                    🏗️<span class="tpl-badge">Actura</span>
+                </div>
+                <div class="template-info">
+                    <h3>Actura · Construction</h3>
+                    <p>Dark construction theme. Services, gallery and contact sections.</p>
+                </div>
+            </div>
+
+            <div class="template-card" data-template="3" onclick="selectTemplate('3')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#e8f4f8,#c9e4ef);">
+                    🏠<span class="tpl-badge">Classic</span>
+                </div>
+                <div class="template-info">
+                    <h3>Classic Real Estate</h3>
+                    <p>Clean construction company layout. Projects and team sections.</p>
+                </div>
+            </div>
+
+            <div class="template-card" data-template="4" onclick="selectTemplate('4')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#0f4c75,#1b6ca8);">
+                    🌅<span class="tpl-badge">Horizon</span>
+                </div>
+                <div class="template-info">
+                    <h3>Horizon · Dream Home</h3>
+                    <p>Blue-toned property portal with search widget and listing cards.</p>
+                </div>
+            </div>
+
+            <div class="template-card" data-template="5" onclick="selectTemplate('5')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#2d6a4f,#40916c);">
+                    🌿<span class="tpl-badge">Modern</span>
+                </div>
+                <div class="template-info">
+                    <h3>Modern Landing Page</h3>
+                    <p>Fresh green palette. Minimal layout focused on lead generation.</p>
+                </div>
+            </div>
+
+            <div class="template-card" data-template="r-6" onclick="selectTemplate('r-6')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#0f1117,#1a1d27);">
+                    🏡<span class="tpl-badge">Homzen</span>
+                </div>
+                <div class="template-info">
+                    <h3>Homzen · Find Your Home</h3>
+                    <p>Dark property portal with property cards, search filters, and footer newsletter.</p>
+                </div>
+            </div>
+
+            <div class="template-card" data-template="r-7" onclick="selectTemplate('r-7')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#2c3e50,#3d5166);">
+                    🔑<span class="tpl-badge">Listings</span>
+                </div>
+                <div class="template-info">
+                    <h3>Properties & Listings</h3>
+                    <p>Property search portal with advanced filter sidebar and listing grid.</p>
+                </div>
+            </div>
+
+            <div class="template-card" data-template="r-8" onclick="selectTemplate('r-8')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#1c1c1e,#2c2c2e);">
+                    🎨<span class="tpl-badge">Archera</span>
+                </div>
+                <div class="template-info">
+                    <h3>Archera · Interior Studio</h3>
+                    <p>Premium dark interior design studio. Portfolio, blog and contact sections.</p>
+                </div>
+            </div>
+
+            <div class="template-card" data-template="r-10" onclick="selectTemplate('r-10')">
+                <div class="template-thumb" style="background:linear-gradient(135deg,#1a1208,#2d1f0a);">
+                    💎<span class="tpl-badge">Browed</span>
+                </div>
+                <div class="template-info">
+                    <h3>Browed · Premium Buyers</h3>
+                    <p>Exclusive luxury real estate. Hero split layout, amenities and property cards.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Generate Button -->
+        <div id="generate-wrap">
+            <p id="selected-label"
+                style="text-align:center; color:var(--clr-muted); font-size:.88rem; margin-bottom:1rem;"></p>
+            <button id="generate-btn" class="btn btn-primary btn-full" onclick="generateWebsite()">
+                Generate My Website ⚡
+            </button>
+        </div>
+
+    </main>
+
+    <footer>Built with <span style="color:var(--clr-accent-lt)">♥</span> · Template Modification Engine v1.0</footer>
+
+    <script>
+        const CLIENT_ID = {{ client_id }};
+        // Preserve the ?lead= param so preview.html can post it back to the CRM
+        const _params = new URLSearchParams(window.location.search);
+        const LEAD_ID = _params.get('lead') || '';
+        let chosen = null;
+
+        const LABELS = {
+            "1": "Archetype · Solara",
+            "2": "Actura · Construction",
+            "3": "Classic Real Estate",
+            "4": "Horizon · Dream Home",
+            "5": "Modern Landing Page",
+            "r-6": "Homzen · Find Your Home",
+            "r-7": "Properties & Listings",
+            "r-8": "Archera · Interior Studio",
+            "r-10": "Browed · Premium Buyers",
+        };
+
+        function selectTemplate(name) {
+            document.querySelectorAll('.template-card').forEach(c => c.classList.remove('selected'));
+            document.querySelector(`[data-template="${name}"]`).classList.add('selected');
+            chosen = name;
+            document.getElementById('selected-label').textContent = `Selected: ${LABELS[name]}`;
+            document.getElementById('generate-wrap').style.display = 'block';
+            document.getElementById('generate-wrap').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        async function generateWebsite() {
+            if (!chosen) return;
+            const btn = document.getElementById('generate-btn');
+            document.getElementById('error-alert').style.display = 'none';
+            btn.disabled = true;
+            btn.innerHTML = '<div class="spinner"></div> Generating…';
+
+            try {
+                const res = await fetch('/template/select', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ client_id: CLIENT_ID, template_name: chosen }),
+                });
+                if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.detail || 'Generation failed. Please retry.');
+                }
+                // Forward the lead param to the preview page so postMessage works
+                const leadParam = LEAD_ID ? `?lead=${encodeURIComponent(LEAD_ID)}` : '';
+                window.location.href = `/preview/${CLIENT_ID}${leadParam}`;
+            } catch (err) {
+                document.getElementById('error-msg').textContent = err.message;
+                document.getElementById('error-alert').style.display = 'flex';
+                btn.disabled = false;
+                btn.innerHTML = 'Generate My Website ⚡';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

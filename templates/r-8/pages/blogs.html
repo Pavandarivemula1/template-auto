@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | {{logo_text}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header class="header" style="background-color: var(--clr-bg-primary);">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">{{logo_text}}</span>
+                    <span class="logo-subtitle">INTERIOR<br>STUDIO</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="pages.html" class="nav-link">Pages</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="blogs.html" class="nav-link active">Blogs</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contacts</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px; min-height: 70vh;">
+        <section class="section-padding">
+            <div class="container" style="text-align: center;">
+                <div class="section-badge">COMMUNITY BLOGS</div>
+                <h2 class="section-title">Latest Updates &amp; Insights</h2>
+                <p class="section-text" style="margin: 0 auto; max-width: 600px; margin-bottom: 60px;">Read our latest
+                    thoughts on architecture, functional interior design, and studio life.</p>
+
+                <div class="page-list-grid" style="text-align: left;">
+
+                    <div class="page-list-item">
+                        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+                            alt="Blog Post" class="page-list-img">
+                        <div class="page-list-content">
+                            <span style="font-size: 0.8rem; color: var(--clr-accent); font-weight: 600;">INTERIOR
+                                DESIGN</span>
+                            <h3 class="page-list-title" style="margin-top: 8px;">10 Tips for Modern Minimalism</h3>
+                            <p class="page-list-desc">A deep dive into how bringing fewer elements to the forefront
+                                enhances the overall perception of living space.</p>
+                            <a href="blog-detail.html" class="page-list-link">Read Article <svg viewBox="0 0 24 24"
+                                    width="12" height="12" stroke="currentColor" stroke-width="2" fill="none">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg></a>
+                        </div>
+                    </div>
+
+                    <div class="page-list-item">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+                            alt="Blog Post" class="page-list-img">
+                        <div class="page-list-content">
+                            <span
+                                style="font-size: 0.8rem; color: var(--clr-accent); font-weight: 600;">ARCHITECTURE</span>
+                            <h3 class="page-list-title" style="margin-top: 8px;">Blending Exterior and Interior Flow
+                            </h3>
+                            <p class="page-list-desc">Discover the secrets behind seamless transitions from your outdoor
+                                gardens right into your living room.</p>
+                            <a href="blog-detail.html" class="page-list-link">Read Article <svg viewBox="0 0 24 24"
+                                    width="12" height="12" stroke="currentColor" stroke-width="2" fill="none">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg></a>
+                        </div>
+                    </div>
+
+                    <div class="page-list-item">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+                            alt="Blog Post" class="page-list-img">
+                        <div class="page-list-content">
+                            <span style="font-size: 0.8rem; color: var(--clr-accent); font-weight: 600;">STUDIO
+                                NEWS</span>
+                            <h3 class="page-list-title" style="margin-top: 8px;">{{logo_text}} Studio Expansion 2026</h3>
+                            <p class="page-list-desc">We are thrilled to announce our new headquarters located in
+                                downtown San Francisco, bringing our designs closer to you.</p>
+                            <a href="blog-detail.html" class="page-list-link">Read Article <svg viewBox="0 0 24 24"
+                                    width="12" height="12" stroke="currentColor" stroke-width="2" fill="none">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <h3>{{logo_text}}</h3>
+                    </div>
+                    <p class="footer-desc">The inspired design of tomorrow. We are specializing in interior tenant
+                        improvements.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>{{address}}, New York, NY 10001</p>
+                    <p>info@{{logo_text}}.studio</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 {{logo_text}} Interior Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

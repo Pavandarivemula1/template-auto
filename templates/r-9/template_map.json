@@ -1,0 +1,35 @@
+{
+  "template_name": "r-9",
+  "processed_at": "2026-04-27T16:20:42",
+  "pages_processed": 7,
+  "pages_modified": 7,
+  "detected_brands": [
+    "Archetype · Solara",
+    "Horizon Dream Home",
+    "Archetype Solara",
+    "Darion Homes",
+    "Archetype",
+    "UiXSHUVO",
+    "Compatto",
+    "Hanuman",
+    "Horizon",
+    "ARCHERA",
+    "Darion",
+    "ACTURA",
+    "Actura",
+    "Solara",
+    "Homzen",
+    "Browed"
+  ],
+  "detected_emails": [],
+  "detected_phones": [],
+  "placeholder_mappings": [
+    {
+      "original": "c&ast;mpatto",
+      "placeholder": "{{logo_text}}",
+      "label": "logo_auto",
+      "count": 14
+    }
+  ],
+  "errors": []
+}

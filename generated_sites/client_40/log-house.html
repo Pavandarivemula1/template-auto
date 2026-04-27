@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4K DEVELOPERS</title>
+    <style>
+        /* RESET & GLOBAL STYLES (4K Design System) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary-color: #ffcc00;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --bg-dark: #1b1b1b;
+            --bg-light: #f9f9f9;
+            --grey-text: #888888;
+            --border-color: #eeeeee;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        svg { display: block; }
+        .flex-center { display: flex; align-items: center; gap: 8px; }
+
+        /* HEADER */
+        .site-header { position: absolute; width: 100%; z-index: 100; color: var(--text-light); }
+        .top-bar {
+            display: flex; justify-content: space-between; padding: 12px 40px;
+            background: rgba(0, 0, 0, 0.4); font-size: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .contact-info, .social-icons { display: flex; align-items: center; gap: 20px; }
+        .social-icons a:hover { color: var(--primary-color); }
+        .main-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 40px; background: rgba(0, 0, 0, 0.2);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; }
+        .nav-links { list-style: none; display: flex; gap: 30px; font-size: 0.9rem; }
+        .nav-links li a:hover { color: var(--primary-color); }
+        .search-icon { cursor: pointer; transition: color 0.3s; }
+        .search-icon:hover { color: var(--primary-color); }
+
+        /* PAGE BANNER - UPDATED TO SPLIT LAYOUT WITH IMAGE */
+        .page-banner {
+            position: relative; 
+            padding: 160px 0 100px 0; 
+            background-color: var(--bg-dark);
+            background-image: url('https://picsum.photos/id/532/1920/800'); 
+            background-size: cover; background-position: center; 
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .banner-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .banner-content {
+            position: relative; 
+            z-index: 10; 
+            color: var(--text-light); 
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 15px; line-height: 1.2; }
+        .hero-text p { font-size: 1.1rem; color: #dddddd; margin-bottom: 20px; }
+        .breadcrumbs { font-size: 0.95rem; color: #aaaaaa; }
+        .breadcrumbs a:hover { color: var(--primary-color); }
+
+        /* FOREGROUND IMAGE STYLING */
+        .hero-image-wrapper {
+            position: relative;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 4px solid var(--primary-color);
+            background-color: #333;
+            min-height: 300px; 
+        }
+
+        /* SERVICES CATALOG GRID */
+        .services-catalog { padding: 100px 0; background-color: var(--bg-light); }
+        
+        .section-intro { text-align: center; max-width: 700px; margin: 0 auto 60px auto; }
+        .section-intro h2 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; }
+        .quote-line-center { width: 40px; height: 4px; background-color: var(--primary-color); margin: 0 auto 20px auto; }
+        .section-intro p { color: var(--grey-text); font-size: 1.1rem; }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* SERVICE CARD */
+        .service-card {
+            background-color: var(--text-light);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 380px;
+        }
+
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background-color: var(--primary-color); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: transparent;
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .icon-wrapper {
+            width: 60px; height: 60px; background-color: var(--bg-light);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: var(--text-dark); margin-bottom: 25px; transition: background-color 0.3s, color 0.3s;
+        }
+
+        .service-card:hover .icon-wrapper {
+            background-color: var(--text-dark); color: var(--primary-color);
+        }
+
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 10px; font-weight: 600; }
+        .price-tag { display: inline-block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 20px; }
+        .service-card p { color: var(--grey-text); font-size: 0.95rem; margin-bottom: 30px; flex-grow: 1; }
+
+        .card-link {
+            font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;
+            text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); margin-top: auto;
+        }
+        
+        .card-link svg { transition: transform 0.3s ease; }
+        .service-card:hover .card-link { color: var(--primary-color); }
+        .service-card:hover .card-link svg { transform: translateX(5px); }
+
+        /* BOTTOM CTA SECTION */
+        .cta-section {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 80px 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(27, 27, 27, 0.9), rgba(27, 27, 27, 0.9)), url('https://picsum.photos/id/1040/1920/800');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; }
+        .cta-section p { font-size: 1.1rem; color: #aaaaaa; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .btn-primary {
+            background-color: var(--primary-color); color: var(--text-dark); border: none; display: inline-flex;
+            padding: 16px 35px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: background 0.3s;
+        }
+        .btn-primary:hover { background-color: #e6b800; }
+
+        /* FOOTER STYLES */
+        .site-footer { background-color: var(--bg-dark); color: var(--text-light); padding: 80px 0 0 0; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 40px; padding-bottom: 60px; }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 25px; position: relative; padding-bottom: 10px; font-weight: 600; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background-color: var(--primary-color); }
+        .footer-about p { color: var(--grey-text); margin-bottom: 25px; font-size: 0.95rem; line-height: 1.7; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--grey-text); transition: all 0.3s; display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+        .footer-links a::before { content: '›'; color: var(--primary-color); font-size: 1.2rem; line-height: 1; }
+        .footer-links a:hover { color: var(--primary-color); transform: translateX(5px); }
+        .footer-contact-item { display: flex; gap: 15px; margin-bottom: 20px; color: var(--grey-text); font-size: 0.95rem; line-height: 1.5; }
+        .footer-contact-item svg { color: var(--primary-color); flex-shrink: 0; margin-top: 3px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding: 25px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--grey-text); }
+        .footer-bottom-links a { margin-left: 20px; transition: color 0.3s; }
+        .footer-bottom-links a:hover { color: var(--primary-color); }
+
+        /* MOBILE MENU TOGGLE */
+        .mobile-menu-btn {
+            display: none; background: transparent; border: none;
+            color: var(--text-light); cursor: pointer; padding: 5px;
+        }
+        .mobile-menu-btn svg { width: 28px; height: 28px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .services-catalog .container { grid-template-columns: 1fr !important; gap: 30px !important; }
+        }
+        @media (max-width: 900px) {
+                        .top-bar { display: none; }
+            .mobile-menu-btn { display: block; }
+            .main-nav { position: relative; padding: 15px 20px; }
+            .nav-links { display: none; flex-direction: column; position: absolute; z-index: 99; top: 100%; left: 0; right: 0; background: var(--bg-dark); padding: 20px; gap: 15px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+            .nav-links.active { display: flex; }
+            .search-icon { display: none; }
+            .footer-top { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+            .footer-bottom-links a { margin: 0 10px; }
+            .banner-content { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .hero-image-wrapper { justify-content: center; }
+            .hero-image-wrapper img { margin-top: 20px; max-width: 90%; }
+            .catalog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <!-- Generated by Template Engine -->
+    <meta data-engine-client content="true" />
+    <meta name="author"      content="4K DEVELOPERS" />
+    <meta name="contact"     content="094908 46247" />
+    <meta name="email"       content="" />
+    <meta name="address"     content="KARALAPADU DONKA ROAD BEHIND ABC GRAMMER SCHOOL TTD KALYANA MANDAPAM, ROAD, Piduguralla, Andhra Pradesh 522413" />
+    <meta name="location"    content="KARALAPADU DONKA ROAD BEHIND ABC GRAMMER SCHOOL TTD KALYANA MANDAPAM, ROAD, Piduguralla, Andhra Pradesh 522413" />
+    <meta name="logo-text"   content="4K" />
+    <meta name="description" content="Real Estate Builders & Construction Company" />
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="contact-info">
+                <span class="flex-center">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    +1 234 567 89 (USA)
+                </span>
+                <span class="flex-center">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    
+                </span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="logo flex-center" style="text-decoration: none; color: inherit;">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 20 L20 5 L35 20" stroke-linecap="round"/>
+                    <path d="M10 25 L20 12 L30 25" stroke-linecap="round"/>
+                </svg>
+                4K
+            </a>
+            <button class="mobile-menu-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home +</a></li>
+                <li><a href="pages.html">Pages +</a></li>
+                <li><a href="#" style="color: var(--primary-color);">Services +</a></li>
+                <li><a href="portfolio.html">Portfolio +</a></li>
+                <li><a href="blog.html">Blog +</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+            <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+        </nav>
+    </header>
+
+        <section class="page-banner">
+        <div class="banner-overlay"></div>
+        <div class="banner-content container">
+            <div class="hero-text">
+                <h1>Log house</h1>
+                <p>Professional log house tailored to your specific needs.</p>
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a> &nbsp; / &nbsp; <a href="services.html">Services</a> &nbsp; / &nbsp; <span style="color: white;">Log house</span>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://picsum.photos/seed/Loghouse/800/500" alt="Log house Hero">
+            </div>
+        </div>
+    </section>
+    <main class="services-catalog" style="padding: 100px 0; background-color: var(--text-light);">
+        <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div>
+                <img src="https://picsum.photos/seed/detailLoghouse/800/600" alt="Log house" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            </div>
+            <div>
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">Log house details</h2>
+                <div style="width: 50px; height: 4px; background-color: var(--primary-color); margin-bottom: 30px;"></div>
+                <p style="font-size: 1.1rem; color: var(--grey-text); margin-bottom: 20px;">Eco-friendly, traditional timber construction utilizing premium woods with modern insulation and sealing techniques.</p>
+                <p style="font-size: 1.1rem; color: var(--grey-text); margin-bottom: 40px;">Our team ensures top-quality results, staying on-time and within budget. Customer satisfaction is our top priority.</p>
+                <div style="font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 30px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    from $190 / m²
+                </div>
+                <a href="contact.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 40px; font-size: 1.1rem;">
+                    Contact Us for a Quote
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </main>
+
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to start your project?</h2>
+            <p>We provide a free on-site consultation and a detailed estimate within 48 hours. Let's build your dream home together.</p>
+            <button class="btn-primary flex-center" onclick="window.location.href='contact.html'">Get a Free Quote &nbsp; 
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col footer-about">
+                    <a href="index.html" class="logo flex-center" style="margin-bottom: 20px; font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; text-decoration: none;">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" stroke="var(--primary-color)" stroke-width="2">
+                            <path d="M5 20 L20 5 L35 20" stroke-linecap="round"/>
+                            <path d="M10 25 L20 12 L30 25" stroke-linecap="round"/>
+                        </svg>
+                        <span style="color: var(--text-light);">4K</span>
+                    </a>
+                    <p>We provide a full range of services for the Real Estate Builders & Construction Company and cottages since 1995. Quality and reliability are our main priorities.</p>
+                    <div class="social-icons" style="margin-top: 20px; display: flex; gap: 15px;">
+                        <a href="#" style="color: var(--text-light); transition: 0.3s;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-light)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" style="color: var(--text-light); transition: 0.3s;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-light)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" style="color: var(--text-light); transition: 0.3s;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-light)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="portfolio.html">Recent Projects</a></li>
+                        <li><a href="blog.html">Company News</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="house-construction.html">House Construction</a></li>
+                        <li><a href="major-repairs.html">Major Repairs</a></li>
+                        <li><a href="design-project.html">Design Project</a></li>
+                        <li><a href="log-house.html">Log Houses</a></li>
+                        <li><a href="cosmetic-repairs.html">Cosmetic Repairs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <div>KARALAPADU DONKA ROAD BEHIND ABC GRAMMER SCHOOL TTD KALYANA MANDAPAM, ROAD, Piduguralla, Andhra Pradesh 522413, Corona,<br>NY 11368, USA</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <div>+1 234 567 89<br>+1 987 654 32</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <div><br></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2024 4K Construction. All rights reserved.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            if (mobileBtn && navLinks) {
+                mobileBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float flex-center" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.052 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="whatsapp-tooltip">Chat with us!</span>
+    </a>
+    <style>
+        .whatsapp-float {
+            position: fixed; 
+            width: 65px; 
+            height: 65px; 
+            bottom: 40px; 
+            right: 40px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #FFF; 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 20px rgba(37, 211, 102, 0.4); 
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            animation: pulse-ring 2s infinite;
+        }
+        .whatsapp-float svg { 
+            width: 35px; 
+            height: 35px; 
+            z-index: 2;
+        }
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            z-index: 1;
+            opacity: 0.7;
+            animation: pulse-glow 2s infinite;
+        }
+        .whatsapp-float:hover { 
+            transform: scale(1.1) translateY(-5px); 
+            box-shadow: 0px 10px 25px rgba(37, 211, 102, 0.6);
+            color: #FFF;
+        }
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 80px;
+            background: #fff;
+            color: #1a1a1a;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 6px 0 6px 6px;
+            border-style: solid;
+            border-color: transparent transparent transparent #fff;
+        }
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        @keyframes pulse-glow {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float { 
+                width: 55px; 
+                height: 55px; 
+                bottom: 25px; 
+                right: 25px; 
+            }
+            .whatsapp-float svg { 
+                width: 30px; 
+                height: 30px; 
+            }
+            .whatsapp-tooltip { display: none; }
+        }
+    </style>
+</body>
+</html>

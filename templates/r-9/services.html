@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | {{title}}</title>
+    <meta name="description"
+        content="Detailed furnishing services by {{title}}. We provide end-to-end solutions for boutique hotels and luxury residences.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .service-card {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .service-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-main);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .service-cta:hover {
+            color: var(--color-text-main);
+        }
+
+        .service-cta svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" aria-label="Compatto Home">
+                <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="currentColor" />
+                    <path d="M12 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z" fill="#f9f7f4" />
+                </svg>
+                {{logo_text}}
+            </a>
+
+            <div class="header-desktop-cta">
+                <a href="contact.html" class="btn btn-outline" id="desktop-contact-btn">Contact us</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="about.html">Who we are</a></li>
+                    <li><a href="challenges.html">The challenges</a></li>
+                    <li><a href="process.html">Our process</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="why-choose.html">Why choose us</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn" id="mobile-contact-btn">Contact us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: var(--space-xl);">
+            <div class="container">
+                <div class="section-header">
+                    <h1 style="font-size: 2.5rem; margin-bottom: var(--space-sm);">Our <span
+                            style="color: var(--color-accent);">Services</span></h1>
+                    <p>Comprehensive luxury furnishing solutions tailored perfectly for your commercial and residential
+                        projects.</p>
+                </div>
+
+                <div style="margin-top: var(--space-lg);">
+
+                    <div class="service-card">
+                        <h2>Bespoke Furniture Sourcing</h2>
+                        <p>Leveraging our network of over 150+ international suppliers, we find exact matches for your
+                            architectural vision. Whether it's Italian leather sofas or Scandinavian dining sets, we
+                            handle procurement, negotiation, and quality control.</p>
+                        <a href="contact.html?service=sourcing" class="service-cta">
+                            Discuss Sourcing Options
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="service-card">
+                        <h2>Custom Fabrication</h2>
+                        <p>For spaces with irregular dimensions or highly specific aesthetic needs, we oversee the
+                            design and fabrication of custom-made pieces. We collaborate closely with master craftsmen
+                            to bring unique concepts to life.</p>
+                        <a href="contact.html?service=fabrication" class="service-cta">
+                            Request Custom Fabrication
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="service-card">
+                        <h2>Logistics & White-Glove Installation</h2>
+                        <p>We completely remove the headache of shipping and handling. Our expert logistics team ensures
+                            safe transit, while our white-glove installers unwrap, assemble, and perfectly place every
+                            item in the property.</p>
+                        <a href="contact.html?service=logistics" class="service-cta">
+                            Contact Regarding Logistics
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="service-card">
+                        <h2>End-to-End Project Management</h2>
+                        <p>From the initial mood boards to the final walkthrough, we offer dedicated project management.
+                            This service brings all moving parts together under one centralized team, guaranteeing
+                            delivery within budget and on schedule.</p>
+                        <a href="contact.html?service=management" class="service-cta">
+                            Hire Our Project Managers
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" style="margin-top: var(--space-xl);">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">{{logo_text}}</div>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="about.html">Who we are</a></li>
+                        <li><a href="challenges.html">The challenges</a></li>
+                        <li><a href="process.html">Our process</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="why-choose.html">Why choose us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 {{title}}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

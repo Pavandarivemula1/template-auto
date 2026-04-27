@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium family homes since 2010">
+    <meta name="keywords" content="About Us, Architecture Firm, Harsha Builders Architects, Guntur Architects, Sustainable Design, Architectural Philosophy">
+    <meta name="author" content="Harsha Builders">
+    
+    <meta property="og:title" content="About Harsha Builders | Sculpting Light, Defining Space">
+    <meta property="og:description" content="Discover the philosophy and team behind Harsha Builders's visionary architectural designs.">
+    <meta property="og:type" content="website">
+
+    <title>Harsha Builders</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Shared CSS Variables */
+        :root {
+            --bg-color: #f7f3e8; 
+            --surface-color: #FFFFFF;
+            --text-primary: #1C1A18; 
+            --text-secondary: #5A5856; 
+            --accent-green: #6d7b5b; 
+            --accent-green-hover: #5a664c;
+            --border-color: #D5D1C8;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --container-width: 1280px;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Global Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 25px 0; transition: var(--transition-smooth); background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(247, 243, 232, 0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            padding: 15px 0; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;
+        }
+
+        nav a:hover { color: var(--accent-green); }
+
+        .logo {
+            font-family: var(--font-serif); font-size: 1.8rem; font-weight: 600;
+            letter-spacing: 0.02em; text-transform: none;
+        }
+
+        /* --- Page Hero (Specific to About Page) --- */
+        .page-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .page-hero img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+        }
+
+        .page-hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(28, 26, 24, 0.5); color: white;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 5%;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-serif); font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 400; margin-bottom: 15px;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem; max-width: 600px; opacity: 0.9;
+        }
+
+        /* --- Typography & Elements --- */
+        .section-title {
+            font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block; background-color: var(--accent-green); color: white; border: none;
+            padding: 16px 32px; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: var(--transition-smooth);
+        }
+
+        .btn:hover { background-color: var(--accent-green-hover); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* --- Story / Philosophy Layout --- */
+        .story-section {
+            display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: flex-start; margin-bottom: 140px;
+        }
+
+        .story-content h2 { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 400; margin-bottom: 30px; }
+        .story-content p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 25px; }
+
+        .story-images {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .story-images img { width: 100%; height: 450px; object-fit: cover; }
+        .story-images img:nth-child(2) { margin-top: 60px; }
+
+        /* --- Team Grid --- */
+        .team-section { margin-bottom: 140px; }
+        .team-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+        }
+
+        .team-card img {
+            width: 100%; height: 450px; filter: grayscale(100%); transition: filter 0.5s ease; margin-bottom: 20px;
+        }
+        .team-card:hover img { filter: grayscale(0%); }
+        .team-card h4 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; margin-bottom: 5px; }
+        .team-card p { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center; padding: 30px 0; font-size: 0.85rem; color: var(--text-secondary); border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .story-section { grid-template-columns: 1fr; gap: 50px; }
+            .story-images img:nth-child(2) { margin-top: 0; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            header nav { font-size: 0.75rem; gap: 10px; }
+            .logo { font-size: 1.5rem; }
+            .team-grid { grid-template-columns: 1fr; }
+            .story-images { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <!-- Generated by Template Engine -->
+    <meta data-engine-client content="true" />
+    <meta name="author"      content="Harsha Builders" />
+    <meta name="contact"     content="+91 9000011111" />
+    <meta name="email"       content="info@harshabuilders.com" />
+    <meta name="address"     content="12 MG Road, Nellore" />
+    <meta name="location"    content="Nellore, AP" />
+    <meta name="logo-text"   content="HB" />
+    <meta name="description" content="Premium family homes since 2010" />
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <nav aria-label="Main Navigation">
+                <a href="projects.html">Properties</a>
+                <a href="index.html" class="logo" aria-label="Harsha Builders Home">Harsha Builders</a>
+                <a href="about.html" style="color: var(--accent-green);">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero" aria-labelledby="hero-heading">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" alt="Architectural detail" fetchpriority="high">
+            <div class="page-hero-overlay">
+                <h1 id="hero-heading">Form, Elevated.</h1>
+                <p>We are a collective of visionaries, builders, and artisans dedicated to reimagining the built environment.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="story-section">
+                <div class="story-content">
+                    <h2>Our Foundation</h2>
+                    <p>Founded in Guntur, AP, Harsha Builders emerged from a singular vision: to create architecture that doesn't merely occupy space, but actively elevates the human experience within it. We treat light as our primary building material, shaping it to define geometry, mood, and function.</p>
+                    <p>Our multidisciplinary team approaches every project—whether a sprawling tech park or an intimate coastal retreat—with the same rigorous dedication to structural integrity and aesthetic purity. We believe that true luxury lies in simplicity, sustainability, and an uncompromising attention to detail.</p>
+                    <p>By integrating cutting-edge computational design with traditional craftsmanship, we bridge the gap between visionary concepts and enduring reality. We are artisans continuum, shaping a sustainable future.</p>
+                    <br>
+                    <a href="index.html#contact" class="btn">Start a Project</a>
+                </div>
+                
+                <div class="story-images">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Modern interior office space">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" alt="Architectural building facade">
+                </div>
+            </section>
+
+            <section class="team-section">
+                <h2 class="section-title" style="text-align: center;">Our Leadership</h2>
+                <div class="team-grid">
+                    
+                    <article class="team-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Principal Architect">
+                        <h4>Marcus Vance</h4>
+                        <p>Principal Architect</p>
+                    </article>
+
+                    <article class="team-card">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Head of Interior Design">
+                        <h4>Elena Rostova</h4>
+                        <p>Head of Interior Design</p>
+                    </article>
+
+                    <article class="team-card">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" alt="Lead Urban Planner">
+                        <h4>Julian Reyes</h4>
+                        <p>Director of Urban Planning</p>
+                    </article>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Harsha Builders. All rights reserved.</p>
+            <p>Sculpting Light, Defining Space. | Guntur, AP</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            
+            // Sticky Header Glassmorphism Effect on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

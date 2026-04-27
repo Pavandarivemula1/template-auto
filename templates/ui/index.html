@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Client – Template Engine</title>
+  <meta name="description" content="Fill in your business details to generate a personalized website." />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-icon">⚡</div>
+    <div>
+      <div class="logo-text">Template Engine</div>
+      <div class="logo-sub">Personalized Websites in Seconds</div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:1.5rem; padding-bottom:2rem;">
+
+    <!-- Steps -->
+    <div class="steps">
+      <div class="step active">
+        <div class="step-dot">1</div>
+        <div class="step-label">Your Info</div>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <div class="step-label">Pick Template</div>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <div class="step-label">Preview</div>
+      </div>
+    </div>
+
+    <div class="page-hero" style="padding-top:0;">
+      <h1>Tell us about yourself</h1>
+      <p>We'll use this to personalize every page of your website.</p>
+    </div>
+
+    <!-- Error Alert -->
+    <div id="error-alert" class="alert alert-error" style="display:none; margin-bottom:1rem;">
+      <span>⚠️</span>
+      <span id="error-msg"></span>
+    </div>
+
+    <!-- Form Card -->
+    <div class="card form-card">
+      <form id="intake-form" novalidate>
+
+        <!-- Row 1: Title + Logo Text -->
+        <div class="form-group">
+          <label for="title">Business / Project Title <span style="color:var(--clr-accent)">*</span></label>
+          <input id="title" name="title" type="text" placeholder="e.g. Harsha Builders" required maxlength="200" />
+        </div>
+
+        <div class="form-group">
+          <label for="logo_text">Logo Text (short brand abbrev.)</label>
+          <input id="logo_text" name="logo_text" type="text" placeholder="e.g. HB  (leave blank to use Title)"
+            maxlength="200" />
+        </div>
+
+        <!-- Row 2: Contact + Email -->
+        <div class="form-group">
+          <label for="contact">Phone / WhatsApp <span style="color:var(--clr-accent)">*</span></label>
+          <input id="contact" name="contact" type="text" placeholder="e.g. +91 98765 43210" required maxlength="200" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" placeholder="e.g. info@harshabuilders.com" maxlength="200" />
+        </div>
+
+        <!-- Row 3: Address + Location -->
+        <div class="form-group">
+          <label for="address">Street Address <span style="color:var(--clr-accent)">*</span></label>
+          <input id="address" name="address" type="text" placeholder="e.g. 12 MG Road, Nellore" required
+            maxlength="300" />
+        </div>
+
+        <div class="form-group">
+          <label for="location">City / Region</label>
+          <input id="location" name="location" type="text" placeholder="e.g. Nellore, Andhra Pradesh" maxlength="200" />
+        </div>
+
+        <!-- About / Details -->
+        <div class="form-group">
+          <label for="details">About / Business Description <span style="color:var(--clr-accent)">*</span></label>
+          <textarea id="details" name="details" rows="4"
+            placeholder="Briefly describe your business, services, or anything you'd like on the website…" required
+            maxlength="1000"></textarea>
+        </div>
+
+        <button id="submit-btn" type="submit" class="btn btn-primary btn-full">
+          Continue to Template Selection →
+        </button>
+
+      </form>
+    </div>
+
+  </main>
+
+  <footer>
+    Built with <span>♥</span> · Template Modification Engine v3.0
+  </footer>
+
+  <script>
+    const form = document.getElementById('intake-form');
+    const btn = document.getElementById('submit-btn');
+    const alertBox = document.getElementById('error-alert');
+    const alertMsg = document.getElementById('error-msg');
+
+    function showError(msg) {
+      alertMsg.textContent = msg;
+      alertBox.style.display = 'flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function hideError() { alertBox.style.display = 'none'; }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError();
+
+      // Required fields
+      const required = ['title', 'contact', 'address', 'details'];
+      const data = {};
+      for (const id of ['title', 'logo_text', 'contact', 'email', 'address', 'location', 'details']) {
+        const el = document.getElementById(id);
+        data[id] = el ? el.value.trim() : '';
+      }
+
+      for (const k of required) {
+        if (!data[k]) { showError(`Please fill in the "${k}" field.`); return; }
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<div class="spinner"></div> Saving…';
+
+      try {
+        const res = await fetch('/client/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.detail || 'Server error. Please try again.');
+        }
+
+        const client = await res.json();
+        window.location.href = `/select/${client.id}`;
+
+      } catch (err) {
+        showError(err.message);
+        btn.disabled = false;
+        btn.innerHTML = 'Continue to Template Selection →';
+      }
+    });
+  </script>
+
+</body>
+
+</html>
