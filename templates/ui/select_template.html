@@ -210,10 +210,61 @@
                 document.getElementById('error-msg').textContent = err.message;
                 document.getElementById('error-alert').style.display = 'flex';
                 btn.disabled = false;
-                btn.innerHTML = 'Generate My Website ⚡';
+                btn.innerHTML = 'Generate My Website <svg fill="currentColor" width="16" height="16" viewBox="0 0 32 32" style="margin-left:auto;"><path d="M22 16L12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"></path></svg>';
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.template-card').forEach(card => {
+                const tmplId = card.getAttribute('data-template');
+                const thumb = card.querySelector('.template-thumb');
+                
+                // Keep inline relative positioning on the thumbnail
+                thumb.style.position = 'relative';
+
+                const btn = document.createElement('button');
+                btn.className = 'btn btn-outline';
+                btn.style.position = 'absolute';
+                btn.style.top = '10px';
+                btn.style.left = '10px';
+                btn.style.padding = '5px 10px';
+                btn.style.fontSize = '12px';
+                btn.style.zIndex = '10';
+                btn.style.background = 'var(--clr-surface)';
+                btn.style.color = 'var(--clr-text)';
+                btn.style.border = '1px solid var(--clr-border)';
+                
+                btn.innerHTML = '<i data-lucide="eye" style="width:14px; height:14px; margin-right:5px; vertical-align:text-bottom;"></i> Preview';
+                
+                btn.onclick = (e) => {
+                    e.stopPropagation();
+                    openPreview(tmplId);
+                };
+                thumb.appendChild(btn);
+            });
+            lucide.createIcons();
+        });
+
+        function openPreview(tmplId) {
+            document.getElementById('previewIframe').src = `/template/preview/${tmplId}`;
+            document.getElementById('previewModal').style.display = 'flex';
+        }
+        function closePreview() {
+            document.getElementById('previewModal').style.display = 'none';
+            document.getElementById('previewIframe').src = '';
+        }
     </script>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; flex-direction:column; padding:min(2rem, 5vw);">
+        <div style="background:var(--clr-surface); border:1px solid var(--clr-border); border-bottom:none; border-radius:12px 12px 0 0; padding:12px 24px; display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="eye" style="width:18px;"></i> Template Preview</span>
+            <button onclick="closePreview()" style="background:none; border:none; color:var(--clr-text); cursor:pointer; padding:4px;"><i data-lucide="x" style="width:20px; height:20px;"></i></button>
+        </div>
+        <div style="flex:1; background:#fff; position:relative; border:1px solid var(--clr-border); border-radius:0 0 12px 12px; overflow:hidden;">
+            <iframe id="previewIframe" src="" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+    </div>
 
 </body>
 
