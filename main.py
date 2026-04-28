@@ -35,6 +35,8 @@ app.add_middleware(
     allow_origins=[
         "https://darion-crm.vercel.app",  # Vercel production
         "http://localhost:3000",           # Local dev
+        "http://localhost:3030",           # Local CRM Express server
+        "http://127.0.0.1:3030",          # Local CRM Express server
         "http://localhost:5500",           # Local dev (Live Server)
         "http://127.0.0.1:5500",
     ],
