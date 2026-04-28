@@ -7,6 +7,7 @@
   <title>New Client – Template Engine</title>
   <meta name="description" content="Fill in your business details to generate a personalized website." />
   <link rel="stylesheet" href="/static/css/style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -46,7 +47,7 @@
 
     <!-- Error Alert -->
     <div id="error-alert" class="alert alert-error" style="display:none; margin-bottom:1rem;">
-      <span>⚠️</span>
+      <i data-lucide="alert-triangle" style="width:18px;height:18px;"></i>
       <span id="error-msg"></span>
     </div>
 
@@ -108,10 +109,11 @@
   </main>
 
   <footer>
-    Built with <span>♥</span> · Template Modification Engine v3.0
+    Built with <i data-lucide="heart" style="width:12px; height:12px; fill:var(--clr-accent-lt); color:var(--clr-accent-lt); display:inline-block; vertical-align:middle;"></i> · Template Modification Engine v3.0
   </footer>
 
   <script>
+    lucide.createIcons();
     const form = document.getElementById('intake-form');
     const btn = document.getElementById('submit-btn');
     const alertBox = document.getElementById('error-alert');

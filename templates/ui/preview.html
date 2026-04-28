@@ -9,6 +9,7 @@
     <title>Preview – {{ client.title }} – Template Engine</title>
     <meta name="description" content="Preview your personalized generated website." />
     <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         .preview-outer {
             background: var(--clr-surface);
@@ -128,7 +129,7 @@
         </div>
 
         <div class="page-hero" style="padding-top:0;">
-            <h1>Your website is ready! 🎉</h1>
+            <h1>Your website is ready! <i data-lucide="party-popper" style="display:inline-block; vertical-align:text-bottom; width:36px; height:36px; color:var(--clr-accent);"></i></h1>
             <p>Preview your personalized website below.</p>
         </div>
 
@@ -143,16 +144,16 @@
             </div>
             <div class="actions">
                 <a href="/site/{{ client.id }}/index.html" target="_blank" class="btn btn-success">
-                    Open Full Site
+                    <i data-lucide="globe" style="width:16px;height:16px;"></i> Open Full Site
                 </a>
                 <a href="/download/{{ client.id }}" class="btn btn-outline" download>
-                    Download ZIP
+                    <i data-lucide="download" style="width:16px;height:16px;"></i> Download ZIP
                 </a>
                 <button id="deployBtn" onclick="deployToVercel()" class="btn btn-primary"
                     style="gap: 6px; cursor: pointer;">
-                    Deploy to Vercel
+                    <i data-lucide="rocket" style="width:16px;height:16px;"></i> Deploy to Vercel
                 </button>
-                <a href="/" class="btn btn-outline">+ New Client</a>
+                <a href="/" class="btn btn-outline"><i data-lucide="plus" style="width:16px;height:16px;"></i> New Client</a>
             </div>
         </div>
 
@@ -161,7 +162,7 @@
              border-radius:12px; padding:20px 24px; margin-bottom:1.5rem;
              flex-direction:column; gap:14px;">
             <div style="display:flex; align-items:center; gap:10px;">
-                <span style="font-size:1.4rem;">🚀</span>
+                <i data-lucide="rocket" style="color:#15803d; width:24px; height:24px;"></i>
                 <span style="font-size:1rem; color:#166534; font-weight:700;">Your demo is live on Vercel!</span>
             </div>
             <a id="deployLink" href="#" target="_blank"
@@ -171,13 +172,13 @@
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
                 <button onclick="window.open(document.getElementById('deployLink').href,'_blank')"
                     style="background:#15803d; color:#fff; border:none; border-radius:8px;
-                           padding:9px 20px; font-size:.9rem; font-weight:600; cursor:pointer;">
-                    🌐 Open Site
+                           padding:9px 20px; font-size:.9rem; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:6px;">
+                    <i data-lucide="globe" style="width:14px;height:14px;"></i> Open Site
                 </button>
-                <button onclick="navigator.clipboard.writeText(document.getElementById('deployLink').href);this.textContent='✅ Copied!';setTimeout(()=>this.textContent='📋 Copy Link',2000);"
+                <button id="copyBtnLink" onclick="navigator.clipboard.writeText(document.getElementById('deployLink').href);document.getElementById('copyBtnText').textContent='Copied!';document.getElementById('copyBtnIcon').setAttribute('data-lucide','check');lucide.createIcons();setTimeout(()=>{document.getElementById('copyBtnText').textContent='Copy Link';document.getElementById('copyBtnIcon').setAttribute('data-lucide','clipboard');lucide.createIcons();},2000);"
                     style="background:#fff; color:#166534; border:2px solid #86efac; border-radius:8px;
-                           padding:9px 20px; font-size:.9rem; font-weight:600; cursor:pointer;">
-                    📋 Copy Link
+                           padding:9px 20px; font-size:.9rem; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:6px;">
+                    <i id="copyBtnIcon" data-lucide="clipboard" style="width:14px;height:14px;"></i> <span id="copyBtnText">Copy Link</span>
                 </button>
             </div>
         </div>
@@ -218,16 +219,17 @@
         </div>
 
         <a href="/select/{{ client.id }}" class="btn btn-outline" style="margin-bottom:1rem;">
-            ← Change Template
+            <i data-lucide="arrow-left" style="width:16px;height:16px;"></i> Change Template
         </a>
 
     </main>
 
     <footer>
-        Built with <span>♥</span> · Template Modification Engine v1.0
+        Built with <i data-lucide="heart" style="width:12px; height:12px; fill:var(--clr-accent-lt); color:var(--clr-accent-lt); display:inline-block; vertical-align:middle;"></i> · Template Modification Engine v1.0
     </footer>
 
     <script>
+        lucide.createIcons();
         const CLIENT_ID = {{ client.id }};
         // Read lead_id from ?lead=XXX query param (set by CRM when opening preview)
         const params   = new URLSearchParams(window.location.search);
@@ -259,9 +261,10 @@
                 result.style.display = 'flex';
 
                 // Update button
-                btn.textContent      = '\u2705 Deployed';
+                btn.innerHTML = '<i data-lucide="check" style="width:16px;height:16px;"></i> Deployed';
                 btn.style.background = '#15803d';
                 btn.style.opacity    = '1';
+                lucide.createIcons();
 
                 // Update the fake browser-bar URL
                 const urlBar = document.querySelector('.browser-url');
@@ -275,10 +278,11 @@
                     );
                 }
             } catch (err) {
-                btn.textContent  = '❌ Deploy failed';
+                btn.innerHTML = '<i data-lucide="x" style="width:16px;height:16px;"></i> Deploy failed';
                 btn.style.background = '#dc2626';
                 btn.disabled = false;
                 btn.style.opacity = '1';
+                lucide.createIcons();
                 alert('Deployment error: ' + err.message);
             }
         }

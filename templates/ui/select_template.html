@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Choose Template – Template Engine</title>
     <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -44,7 +45,7 @@
         </div>
 
         <div id="error-alert" class="alert alert-error" style="display:none; margin-bottom:1rem;">
-            <span>⚠️</span><span id="error-msg"></span>
+            <i data-lucide="alert-triangle" style="width:18px;height:18px;"></i><span id="error-msg"></span>
         </div>
 
         <!-- 9 Real Estate Templates -->
@@ -52,7 +53,7 @@
 
             <div class="template-card" data-template="1" onclick="selectTemplate('1')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#f7f3e8,#e8e4d8);">
-                    🏛️<span class="badge-overlay">Archetype</span>
+                    <i data-lucide="landmark" style="width:48px; height:48px; opacity:0.8; color:#161616;"></i><span class="badge-overlay">Archetype</span>
                 </div>
                 <div class="template-info">
                     <h3>Archetype · Solara</h3>
@@ -62,7 +63,7 @@
 
             <div class="template-card" data-template="2" onclick="selectTemplate('2')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
-                    🏗️<span class="badge-overlay">Actura</span>
+                    <i data-lucide="building-2" style="width:48px; height:48px; opacity:0.8; color:#ffffff;"></i><span class="badge-overlay">Actura</span>
                 </div>
                 <div class="template-info">
                     <h3>Actura · Construction</h3>
@@ -72,7 +73,7 @@
 
             <div class="template-card" data-template="3" onclick="selectTemplate('3')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#e8f4f8,#c9e4ef);">
-                    🏠<span class="badge-overlay">Classic</span>
+                    <i data-lucide="home" style="width:48px; height:48px; opacity:0.8; color:#0f62fe;"></i><span class="badge-overlay">Classic</span>
                 </div>
                 <div class="template-info">
                     <h3>Classic Real Estate</h3>
@@ -82,7 +83,7 @@
 
             <div class="template-card" data-template="4" onclick="selectTemplate('4')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#0f4c75,#1b6ca8);">
-                    🌅<span class="badge-overlay">Horizon</span>
+                    <i data-lucide="sun" style="width:48px; height:48px; opacity:0.8; color:#f1c21b;"></i><span class="badge-overlay">Horizon</span>
                 </div>
                 <div class="template-info">
                     <h3>Horizon · Dream Home</h3>
@@ -92,7 +93,7 @@
 
             <div class="template-card" data-template="5" onclick="selectTemplate('5')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#2d6a4f,#40916c);">
-                    🌿<span class="badge-overlay">Modern</span>
+                    <i data-lucide="leaf" style="width:48px; height:48px; opacity:0.8; color:#ffffff;"></i><span class="badge-overlay">Modern</span>
                 </div>
                 <div class="template-info">
                     <h3>Modern Landing Page</h3>
@@ -102,7 +103,7 @@
 
             <div class="template-card" data-template="r-6" onclick="selectTemplate('r-6')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#0f1117,#1a1d27);">
-                    🏡<span class="badge-overlay">Homzen</span>
+                    <i data-lucide="layout-grid" style="width:48px; height:48px; opacity:0.8; color:#4589ff;"></i><span class="badge-overlay">Homzen</span>
                 </div>
                 <div class="template-info">
                     <h3>Homzen · Find Your Home</h3>
@@ -112,7 +113,7 @@
 
             <div class="template-card" data-template="r-7" onclick="selectTemplate('r-7')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#2c3e50,#3d5166);">
-                    🔑<span class="badge-overlay">Listings</span>
+                    <i data-lucide="key" style="width:48px; height:48px; opacity:0.8; color:#ffffff;"></i><span class="badge-overlay">Listings</span>
                 </div>
                 <div class="template-info">
                     <h3>Properties & Listings</h3>
@@ -122,7 +123,7 @@
 
             <div class="template-card" data-template="r-8" onclick="selectTemplate('r-8')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#1c1c1e,#2c2c2e);">
-                    🎨<span class="badge-overlay">Archera</span>
+                    <i data-lucide="palette" style="width:48px; height:48px; opacity:0.8; color:#ffffff;"></i><span class="badge-overlay">Archera</span>
                 </div>
                 <div class="template-info">
                     <h3>Archera · Interior Studio</h3>
@@ -132,7 +133,7 @@
 
             <div class="template-card" data-template="r-10" onclick="selectTemplate('r-10')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#1a1208,#2d1f0a);">
-                    💎<span class="badge-overlay">Browed</span>
+                    <i data-lucide="gem" style="width:48px; height:48px; opacity:0.8; color:#f1c21b;"></i><span class="badge-overlay">Browed</span>
                 </div>
                 <div class="template-info">
                     <h3>Browed · Premium Buyers</h3>
@@ -154,9 +155,10 @@
 
     </main>
 
-    <footer>Built with <span style="color:var(--clr-accent-lt)">♥</span> · Template Modification Engine v1.0</footer>
+    <footer>Built with <i data-lucide="heart" style="width:12px; height:12px; fill:var(--clr-accent-lt); color:var(--clr-accent-lt); display:inline-block; vertical-align:middle;"></i> · Template Modification Engine v1.0</footer>
 
     <script>
+        lucide.createIcons();
         const CLIENT_ID = {{ client_id }};
         // Preserve the ?lead= param so preview.html can post it back to the CRM
         const _params = new URLSearchParams(window.location.search);
