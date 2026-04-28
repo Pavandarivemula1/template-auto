@@ -96,7 +96,9 @@
 <body>
 
     <header>
-        <div class="logo-icon">⚡</div>
+        <div class="logo-icon">
+            <svg fill="currentColor" width="16" height="16" viewBox="0 0 32 32"><path d="M11 25.5l-8-8 1.4-1.4 6.6 6.6 15.6-15.6 1.4 1.4z"></path></svg>
+        </div>
         <div>
             <div class="logo-text">Template Engine</div>
             <div class="logo-sub">Step 3 of 3 – Preview</div>
@@ -108,11 +110,15 @@
         <!-- Steps -->
         <div class="steps">
             <div class="step done">
-                <div class="step-dot">✓</div>
+                <div class="step-dot">
+                    <svg fill="currentColor" width="12" height="12" viewBox="0 0 32 32"><path d="M11 25.5l-8-8 1.4-1.4 6.6 6.6 15.6-15.6 1.4 1.4z"></path></svg>
+                </div>
                 <div class="step-label">Your Info</div>
             </div>
             <div class="step done">
-                <div class="step-dot">✓</div>
+                <div class="step-dot">
+                    <svg fill="currentColor" width="12" height="12" viewBox="0 0 32 32"><path d="M11 25.5l-8-8 1.4-1.4 6.6 6.6 15.6-15.6 1.4 1.4z"></path></svg>
+                </div>
                 <div class="step-label">Pick Template</div>
             </div>
             <div class="step active">
@@ -137,14 +143,14 @@
             </div>
             <div class="actions">
                 <a href="/site/{{ client.id }}/index.html" target="_blank" class="btn btn-success">
-                    🌐 Open Full Site
+                    Open Full Site
                 </a>
                 <a href="/download/{{ client.id }}" class="btn btn-outline" download>
-                    ⬇ Download ZIP
+                    Download ZIP
                 </a>
-                <button id="deployBtn" onclick="deployToVercel()" class="btn"
-                    style="background: #000; color: #fff; border: 1px solid #000; gap: 6px; cursor: pointer;">
-                    🚀 Deploy to Vercel
+                <button id="deployBtn" onclick="deployToVercel()" class="btn btn-primary"
+                    style="gap: 6px; cursor: pointer;">
+                    Deploy to Vercel
                 </button>
                 <a href="/" class="btn btn-outline">+ New Client</a>
             </div>

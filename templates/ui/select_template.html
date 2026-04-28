@@ -6,93 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Choose Template – Template Engine</title>
     <link rel="stylesheet" href="/static/css/style.css" />
-    <style>
-        .templates-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (min-width: 480px) {
-            .templates-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (min-width: 800px) {
-            .templates-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .template-card {
-            background: var(--clr-card);
-            border: 2px solid var(--clr-border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-
-        .template-card:hover {
-            border-color: var(--clr-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(108, 99, 255, .2);
-        }
-
-        .template-card.selected {
-            border-color: var(--clr-accent);
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, .25);
-        }
-
-        .template-thumb {
-            height: 120px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            overflow: hidden;
-        }
-
-        .tpl-badge {
-            position: absolute;
-            top: .5rem;
-            right: .5rem;
-            background: var(--clr-accent);
-            color: #fff;
-            font-size: .62rem;
-            font-weight: 700;
-            padding: .2rem .5rem;
-            border-radius: 999px;
-        }
-
-        .template-info {
-            padding: .85rem;
-        }
-
-        .template-info h3 {
-            font-size: .9rem;
-            font-weight: 600;
-            margin-bottom: .2rem;
-        }
-
-        .template-info p {
-            font-size: .75rem;
-            color: var(--clr-muted);
-        }
-
-        #generate-wrap {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
 
     <header>
-        <div class="logo-icon">⚡</div>
+        <div class="logo-icon">
+            <svg fill="currentColor" width="16" height="16" viewBox="0 0 32 32"><path d="M11 25.5l-8-8 1.4-1.4 6.6 6.6 15.6-15.6 1.4 1.4z"></path></svg>
+        </div>
         <div>
             <div class="logo-text">Template Engine</div>
             <div class="logo-sub">Step 2 of 3 – Choose a Website</div>
@@ -131,7 +52,7 @@
 
             <div class="template-card" data-template="1" onclick="selectTemplate('1')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#f7f3e8,#e8e4d8);">
-                    🏛️<span class="tpl-badge">Archetype</span>
+                    🏛️<span class="badge-overlay">Archetype</span>
                 </div>
                 <div class="template-info">
                     <h3>Archetype · Solara</h3>
@@ -141,7 +62,7 @@
 
             <div class="template-card" data-template="2" onclick="selectTemplate('2')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
-                    🏗️<span class="tpl-badge">Actura</span>
+                    🏗️<span class="badge-overlay">Actura</span>
                 </div>
                 <div class="template-info">
                     <h3>Actura · Construction</h3>
@@ -151,7 +72,7 @@
 
             <div class="template-card" data-template="3" onclick="selectTemplate('3')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#e8f4f8,#c9e4ef);">
-                    🏠<span class="tpl-badge">Classic</span>
+                    🏠<span class="badge-overlay">Classic</span>
                 </div>
                 <div class="template-info">
                     <h3>Classic Real Estate</h3>
@@ -161,7 +82,7 @@
 
             <div class="template-card" data-template="4" onclick="selectTemplate('4')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#0f4c75,#1b6ca8);">
-                    🌅<span class="tpl-badge">Horizon</span>
+                    🌅<span class="badge-overlay">Horizon</span>
                 </div>
                 <div class="template-info">
                     <h3>Horizon · Dream Home</h3>
@@ -171,7 +92,7 @@
 
             <div class="template-card" data-template="5" onclick="selectTemplate('5')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#2d6a4f,#40916c);">
-                    🌿<span class="tpl-badge">Modern</span>
+                    🌿<span class="badge-overlay">Modern</span>
                 </div>
                 <div class="template-info">
                     <h3>Modern Landing Page</h3>
@@ -181,7 +102,7 @@
 
             <div class="template-card" data-template="r-6" onclick="selectTemplate('r-6')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#0f1117,#1a1d27);">
-                    🏡<span class="tpl-badge">Homzen</span>
+                    🏡<span class="badge-overlay">Homzen</span>
                 </div>
                 <div class="template-info">
                     <h3>Homzen · Find Your Home</h3>
@@ -191,7 +112,7 @@
 
             <div class="template-card" data-template="r-7" onclick="selectTemplate('r-7')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#2c3e50,#3d5166);">
-                    🔑<span class="tpl-badge">Listings</span>
+                    🔑<span class="badge-overlay">Listings</span>
                 </div>
                 <div class="template-info">
                     <h3>Properties & Listings</h3>
@@ -201,7 +122,7 @@
 
             <div class="template-card" data-template="r-8" onclick="selectTemplate('r-8')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#1c1c1e,#2c2c2e);">
-                    🎨<span class="tpl-badge">Archera</span>
+                    🎨<span class="badge-overlay">Archera</span>
                 </div>
                 <div class="template-info">
                     <h3>Archera · Interior Studio</h3>
@@ -211,7 +132,7 @@
 
             <div class="template-card" data-template="r-10" onclick="selectTemplate('r-10')">
                 <div class="template-thumb" style="background:linear-gradient(135deg,#1a1208,#2d1f0a);">
-                    💎<span class="tpl-badge">Browed</span>
+                    💎<span class="badge-overlay">Browed</span>
                 </div>
                 <div class="template-info">
                     <h3>Browed · Premium Buyers</h3>
@@ -222,11 +143,12 @@
         </div>
 
         <!-- Generate Button -->
-        <div id="generate-wrap">
+        <div id="generate-wrap" style="display: none;">
             <p id="selected-label"
                 style="text-align:center; color:var(--clr-muted); font-size:.88rem; margin-bottom:1rem;"></p>
             <button id="generate-btn" class="btn btn-primary btn-full" onclick="generateWebsite()">
-                Generate My Website ⚡
+                Generate My Website
+                <svg fill="currentColor" width="16" height="16" viewBox="0 0 32 32" style="margin-left:auto;"><path d="M22 16L12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"></path></svg>
             </button>
         </div>
 
